@@ -10,8 +10,7 @@ Script Source:
 <script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
 ```
 
-Values
-------
+### Values ###
 
 + **Voice**	          :  1
 + **NearRealTime**    :  8
