@@ -1,7 +1,7 @@
 [Index](index.md)
 
-Mediatypes Enumeration
-======================
+States Enumeration
+==================
 
 Namespace: Ifm.PhoneBar
 
