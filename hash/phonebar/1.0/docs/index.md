@@ -6,12 +6,12 @@ Index
 Namespace: Ifm.PhoneBar
 -----------------------
 
-## Classes ##
+### Classes ###
 
 * [Call class](call.md)
 * [PhoneBar class](phonebar.md)
 
-## Constants ##
+### Constants ###
 
 * [Mediatypes enum](mediatypes.md)
 * [States enum](states.md)

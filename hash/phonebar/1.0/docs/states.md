@@ -10,7 +10,10 @@ Script Source:
 <script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
 ```
 
-## Values ##
+Syntax
+------
+
+### Values ###
 
 + **NotLoggedIn**     : "[Not Logged In]"
 + **Connecting**      : "[Connecting]"

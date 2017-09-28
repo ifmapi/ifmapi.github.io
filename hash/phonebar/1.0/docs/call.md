@@ -10,21 +10,24 @@ Script Source:
 <script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
 ```
 
-## Constructors ##
+Syntax
+------
+
+### Constructors ###
 
 There is no public constructor for this class.
 
-## Static Methods ##
+### Static Methods ###
 
-## Static Properties ##
+### Static Properties ###
 
-## Constants ##
+### Constants ###
 
-## Events ##
+### Events ###
 
-## Instance Methods ##
+### Instance Methods ###
 
-## Instance Properties ##
+### Instance Properties ###
 
 + **callData** : Ifm.Messaging.FPropertyList
 

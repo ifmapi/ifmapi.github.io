@@ -10,7 +10,10 @@ Script Source:
 <script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
 ```
 
-## Constructors ##
+Syntax
+------
+
+### Constructors ###
 
 The PhoneBar object is a singleton.
 
@@ -20,18 +23,18 @@ Get a reference to the current object using:
 Ifm.PhoneBar.instance
 ```
 
-## Static Methods ##
+### Static Methods ###
 
 + **canRun** : function()
 	- _return_ : Boolean
 
-## Static Properties ##
+### Static Properties ###
 
 + **instance** : Ifm.PhoneBar
 
-## Constants ##
+### Constants ###
 
-## Events ##
+### Events ###
 
 Phones Server notifications:
 
@@ -119,7 +122,7 @@ Supervisor messages:
 		- severity : Number
 		- message : String
 
-## Instance Methods ##
+### Instance Methods ###
 
 + **calls** : function(*optional* filter)
 	- filter : Number OR (Boolean) function(call)
@@ -194,7 +197,7 @@ Supervisor messages:
 	- *optional* mode : Number
 	- *optional* callback : function(e)
 
-## Instance Properties ##
+### Instance Properties ###
 
 + **agent** : Object
 	- firstName : String
