@@ -6,17 +6,12 @@ Index
 Namespace: Ifm.PhoneBar
 -----------------------
 
-Script Source:
-```html
-<script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
-```
-
-### Classes ###
+## Classes ##
 
 * [Call class](call.md)
 * [PhoneBar class](phonebar.md)
 
-### Constants ###
+## Constants ##
 
 * [Mediatypes enum](mediatypes.md)
 * [States enum](states.md)

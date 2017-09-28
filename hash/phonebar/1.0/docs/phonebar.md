@@ -10,10 +10,7 @@ Script Source:
 <script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
 ```
 
-Syntax
-------
-
-### Constructors ###
+## Constructors ##
 
 The PhoneBar object is a singleton.
 
@@ -23,27 +20,27 @@ Get a reference to the current object using:
 Ifm.PhoneBar.instance
 ```
 
-### Static Methods ###
+## Static Methods ##
 
 + **canRun** : function()
 	- _return_ : Boolean
 
-### Static Properties ###
+## Static Properties ##
 
 + **instance** : Ifm.PhoneBar
 
-### Constants ###
+## Constants ##
 
-### Events ###
+## Events ##
 
 Phones Server notifications:
 
 + **assignment** : function(phonebar, e)
-	- e : Ifm.PhoneBar.Call
+	- e : [Call](call.md)
 
 + **booked** : function(phonebar, e)
 	- e : Object
-		- mediatype : Ifm.PhoneBar.Mediatypes
+		- mediatype : [Mediatypes](mediatypes.md)
 		- campaignName : String
 
 + **alerting** : function(phonebar, e)
@@ -107,8 +104,8 @@ State events:
 
 + **statechanged** : function(phonebar, e)
 	- e : Object
-		- previousState : Ifm.PhoneBar.States
-		- state : Ifm.PhoneBar.States
+		- previousState : [States](states.md)
+		- currentState : [States](states.md)
 
 + **statetimechanged** : function(phonebar, e)
 	- e : Object
@@ -122,14 +119,14 @@ Supervisor messages:
 		- severity : Number
 		- message : String
 
-### Instance Methods ###
+## Instance Methods ##
 
 + **calls** : function(*optional* filter)
 	- filter : Number OR (Boolean) function(call)
-	- _return_ : Ifm.PhoneBar.Call
+	- _return_ : [Call](call.md)
 
 + **currentState** : function()
-	- _return_ : Ifm.PhoneBar.States
+	- _return_ : [States](states.md)
 
 + **currentStateTime** : function()
 	- _return_ : Date
@@ -141,7 +138,7 @@ Supervisor messages:
 
 + **getCampaignList** : function(callId, mediatype, mask, callback)
 	- callId : Number
-	- mediatype : Ifm.PhoneBar.Mediatypes
+	- mediatype : [Mediatypes](mediatypes.md)
 	- mask : Number
 	- callback : function(e)
 
@@ -197,7 +194,7 @@ Supervisor messages:
 	- *optional* mode : Number
 	- *optional* callback : function(e)
 
-### Instance Properties ###
+## Instance Properties ##
 
 + **agent** : Object
 	- firstName : String
@@ -221,7 +218,8 @@ Set an event handler for a specific event:
 Ifm.PhoneBar.events.statechanged = function (phonebar, e) { ... };
 ```
 
-### See Also ###
+See Also
+--------
 
 * [Call class](call.md)
 * [Mediatypes enum](mediatypes.md)

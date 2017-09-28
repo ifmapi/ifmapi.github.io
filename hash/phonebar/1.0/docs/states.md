@@ -10,7 +10,7 @@ Script Source:
 <script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
 ```
 
-### Values ###
+## Values ##
 
 + **NotLoggedIn**     : "[Not Logged In]"
 + **Connecting**      : "[Connecting]"
@@ -25,7 +25,13 @@ Script Source:
 + **WaitingOutbound** : "[Waiting Outbound]"
 + **WaitingTransfer** : "[Waiting Transfer]"
 
-### See Also ###
+Remarks
+-------
+
+Values of this enumeration are human-friendly constant strings.
+
+See Also
+--------
 
 * [PhoneBar class](phonebar.md)
 
