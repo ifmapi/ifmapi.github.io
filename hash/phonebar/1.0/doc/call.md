@@ -1,5 +1,5 @@
 ﻿
-`` Copyright © IFM Infomaster. All rights reserved. ``
+``` Copyright © IFM Infomaster. All rights reserved. ```
 
 Call Class
 ==========
@@ -7,7 +7,9 @@ Call Class
 Namespace: Ifm.PhoneBar
 
 Script Source:
-``<script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>``
+```html
+<script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
+```
 
 Syntax
 ------
@@ -41,9 +43,9 @@ There is no public constructor for this class.
 + **otherData** : Object
 	- campaignId : String
 	- serviceId : String
-    - recordingFileName : String
-    - recordingSettings : Number
-    - recordingState : Number
+	- recordingFileName : String
+	- recordingSettings : Number
+	- recordingState : Number
 	- scriptName : String
 	- scriptParameters : String
 
@@ -54,20 +56,26 @@ Examples
 --------
 
 Get a reference to the active calls array:
->	var calls = phonebar.calls();
+```javascript
+var calls = phonebar.calls();
+```
 
 Get a reference to a specific call object:
->	var call = phonebar.calls(callId);
+```javascript
+call = phonebar.calls(callId);
+```
 
 Find a reference to some calls:
->	var found = phonebar.calls(function(call) { 
->	    // filter for social network calls:
->	    return call.mediatype === Ifm.PhoneBar.Mediatypes.StoreAndForward;
->	});
+```javascript
+var found = phonebar.calls(function(call) { 
+	// filter for social network calls:
+	return call.mediatype === Ifm.PhoneBar.Mediatypes.StoreAndForward;
+});
+```
 
 ### See Also ###
 
 * [PhoneBar class](phonebar.md)
 * [Mediatypes enum](mediatypes.md)
 
-`` https://ifmapi.github.io/hash/phonebar/1.0/doc/call.md ``
+``` https://ifmapi.github.io/hash/phonebar/1.0/doc/call.md ```

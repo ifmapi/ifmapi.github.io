@@ -1,5 +1,5 @@
 ﻿
-`` Copyright © IFM Infomaster. All rights reserved. ``
+``` Copyright © IFM Infomaster. All rights reserved. ```
 
 PhoneBar Class
 ==============
@@ -7,7 +7,9 @@ PhoneBar Class
 Namespace: Ifm.PhoneBar
 
 Script Source:
-``<script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>``
+```html
+<script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
+```
 
 Syntax
 ------
@@ -18,7 +20,9 @@ The PhoneBar object is a singleton.
 
 There is no public constructor for this class.
 Get a reference to the current object using:
->	Ifm.PhoneBar.instance
+```javascript
+Ifm.PhoneBar.instance
+```
 
 ### Static Methods ###
 
@@ -209,10 +213,14 @@ Examples
 --------
 
 Get a reference to the object:
->	var phonebar = Ifm.PhoneBar.instance;
+```javascript
+var phonebar = Ifm.PhoneBar.instance;
+```
 
 Set an event handler for a specific event:
->	Ifm.PhoneBar.events.statechanged = function (phonebar, e) { ... };
+```javascript
+Ifm.PhoneBar.events.statechanged = function (phonebar, e) { ... };
+```
 
 ### See Also ###
 
@@ -220,4 +228,4 @@ Set an event handler for a specific event:
 * [Mediatypes enum](mediatypes.md)
 * [States enum](states.md)
 
-`` https://ifmapi.github.io/hash/phonebar/1.0/doc/phonebar.md ``
+``` https://ifmapi.github.io/hash/phonebar/1.0/doc/phonebar.md ```
