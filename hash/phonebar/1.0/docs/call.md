@@ -1,4 +1,6 @@
 
+* [Index](index.md)
+
 Call Class
 ==========
 
