@@ -1,4 +1,4 @@
-﻿
+
 Namespace: Ifm.PhoneBar
 -----------------------
 
