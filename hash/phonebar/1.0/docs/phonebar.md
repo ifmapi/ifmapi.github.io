@@ -1,6 +1,4 @@
 ﻿
-``` Copyright © IFM Infomaster. All rights reserved. ```
-
 PhoneBar Class
 ==============
 
@@ -228,4 +226,4 @@ Ifm.PhoneBar.events.statechanged = function (phonebar, e) { ... };
 * [Mediatypes enum](mediatypes.md)
 * [States enum](states.md)
 
-``` https://ifmapi.github.io/hash/phonebar/1.0/doc/phonebar.md ```
+``` Copyright © IFM Infomaster. All rights reserved. ```

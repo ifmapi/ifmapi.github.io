@@ -1,6 +1,4 @@
 ﻿
-``` Copyright © IFM Infomaster. All rights reserved. ```
-
 Call Class
 ==========
 
@@ -78,4 +76,4 @@ var found = phonebar.calls(function(call) {
 * [PhoneBar class](phonebar.md)
 * [Mediatypes enum](mediatypes.md)
 
-``` https://ifmapi.github.io/hash/phonebar/1.0/doc/call.md ```
+``` Copyright © IFM Infomaster. All rights reserved. ```
