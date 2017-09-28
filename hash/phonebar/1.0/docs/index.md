@@ -1,6 +1,15 @@
+Index
+
+#phonebar API
+=============
 
 Namespace: Ifm.PhoneBar
 -----------------------
+
+Script Source:
+```html
+<script src="https://ifmapi.github.io/hash/phonebar/1.0/phonebar.min.js"></script>
+```
 
 ### Classes ###
 
