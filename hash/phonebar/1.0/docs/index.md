@@ -3,13 +3,17 @@ Index
 #phonebar API
 =============
 
+Namespace: Ifm
+--------------
+
+* [PhoneBar class](phonebar.md)
+
 Namespace: Ifm.PhoneBar
 -----------------------
 
 ### Classes ###
 
 * [Call class](call.md)
-* [PhoneBar class](phonebar.md)
 
 ### Constants ###
 

@@ -3,7 +3,7 @@
 PhoneBar Class
 ==============
 
-Namespace: Ifm.PhoneBar
+Namespace: Ifm
 
 Script Source:
 ```html
