@@ -36,15 +36,7 @@ Ifm.PhoneBar.instance
 
 ### Events ###
 
-Phones Server notifications:
-
-+ **assignment** : function(phonebar, e)
-	- e : [Call](call.md)
-
-+ **booked** : function(phonebar, e)
-	- e : Object
-		- mediatype : [Mediatypes](mediatypes.md)
-		- campaignName : String
+Call notifications:
 
 + **alerting** : function(phonebar, e)
 	- e : Object
@@ -53,6 +45,14 @@ Phones Server notifications:
 + **answered** : function(phonebar, e)
 	- e : Object
 		- callId : Number
+
++ **assignment** : function(phonebar, e)
+	- e : [Call](call.md)
+
++ **booked** : function(phonebar, e)
+	- e : Object
+		- mediatype : [Mediatypes](mediatypes.md)
+		- campaignName : String
 
 + **callfailure** : function(phonebar, e)
 	- e : Object
@@ -151,6 +151,14 @@ Supervisor messages:
 + **getQueueInfo** : function(campaignName, callback)
 	- campaignName : String
 	- callback : function(e)
+		- e : Object
+			- calls : Number
+			- avgTime : Number
+			- maxTime : Number
+			- campaigns : Array
+				- name : String
+				- avgTime : Number
+				- maxTime : Number
 
 + **initialize** : function(config, options)
 	- config : Object
