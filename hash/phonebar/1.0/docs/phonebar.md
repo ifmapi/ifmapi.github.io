@@ -36,6 +36,11 @@ Ifm.PhoneBar.instance
 
 ### Events ###
 
++ **initialized** : function(phonebar, e)
+	- e : Object
+		- config : Object
+		- options : Object
+
 Call notifications:
 
 + **alerting** : function(phonebar, e)
