@@ -144,10 +144,20 @@ Supervisor messages:
 	- mask : Number
 	- callback : function(e)
 
++ **getAssignedCampaignList** : function(callback)
+	- callback : function(e)
+
 + **getCampaignList** : function(callId, mediatype, mask, callback)
 	- callId : Number
 	- mediatype : [Mediatypes](mediatypes.md)
 	- mask : Number
+	- callback : function(e)
+
++ **getOutboundCampaignList** : function(callback)
+	- callback : function(e)
+
++ **getTransferCampaignList** : function(callId, callback)
+	- callId : Number
 	- callback : function(e)
 
 + **getPauseReasons** : function(callback)
@@ -164,6 +174,10 @@ Supervisor messages:
 				- name : String
 				- avgTime : Number
 				- maxTime : Number
+
++ **getTransferAgentList** : function(campaignName, callback)
+	- campaignName : String
+	- callback : function(e)
 
 + **initialize** : function(config, options)
 	- config : Object
