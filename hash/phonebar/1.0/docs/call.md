@@ -39,12 +39,15 @@ There is no public constructor for this class.
 
 + **mediatype** : [Mediatypes](mediatypes.md)
 
++ **recordingData** : Object
+	- fileName : String
+	- settings : Number
+	- rxChannelMuted : Boolean
+	- txChannelMuted : Boolean
+
 + **otherData** : Object
 	- campaignId : String
 	- serviceId : String
-	- recordingFileName : String
-	- recordingSettings : Number
-	- recordingState : Number
 	- scriptName : String
 	- scriptParameters : String
 

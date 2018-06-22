@@ -92,18 +92,18 @@ Call notifications:
 
 Recording notifications:
 
-+ **audiorecordingstarted** : function(phonebar, e)
++ **recordingstarted** : function(phonebar, e)
 	- e : Object
 		- callId : Number
 		- fileName : String
 
-+ **audiorecordingmuted** : function(phonebar, e)
++ **recordingmutechanged** : function(phonebar, e)
 	- e : Object
 		- callId : Number
-		- rxChannel : Boolean
-		- txChannel : Boolean
+		- rxChannelMuted : Boolean
+		- txChannelMuted : Boolean
 
-+ **audiorecordingcompleted** : function(phonebar, e)
++ **recordingstopped** : function(phonebar, e)
 	- e : Object
 		- callId : Number
 		- result : Number
@@ -223,6 +223,23 @@ Supervisor messages:
 	- *optional* mandatory : Boolean
 	- *optional* mode : Number
 	- *optional* callback : function(e)
+
++ **startRecording** : function (callId, *optional* fileName, *optional* settings)
+	- callId : Number
+	- *optional* fileName : String
+	- *optional* settings : Number
+
++ **stopRecording** : function (callId)
+	- callId : Number
+
++ **muteRecording** : function (callId, muteRxChannel, muteTxChannel)
+	- callId : Number
+	- muteRxChannel : Boolean
+	- muteTxChannel : Boolean
+
++ **tagRecording** : function (callId, tag)
+	- callId : Number
+	- tag : String
 
 ### Instance Properties ###
 
