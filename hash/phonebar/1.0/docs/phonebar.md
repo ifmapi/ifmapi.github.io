@@ -41,6 +41,10 @@ Ifm.PhoneBar.instance
 		- config : Object
 		- options : Object
 
++ **languagechanged** : function(phonebar, e)
+	- e : Object
+		- language : String
+
 Call notifications:
 
 + **alerting** : function(phonebar, e)
