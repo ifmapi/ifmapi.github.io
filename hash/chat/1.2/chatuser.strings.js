@@ -1,7 +1,7 @@
 
 //============================================================================
 
-// Copyright (c) IFM Infomaster. All rights reserved.
+// Copyright © IFM Infomaster. All rights reserved.
 
 //============================================================================
 
@@ -29,9 +29,15 @@ namespace("Ifm.Chat.Strings");
         ConnectionLost      : "Connection lost",
         SenderIsUser        : "You",
         ChatStateComposing  : "is writing...",
+        // Commands:
+        Disconnect          : "Disconnect",
+        DisconnectConfirm   : "Confirm?",
+        DisconnectConfirmNo : "No",
+        DisconnectConfirmYo : "Yes",
 
         FileTransfer: {
             NotAvailable    : "File transfer not available",
+            NotAvailOther   : "File transfer not available with this user",
             TransferTitle   : "File", // + filename + status
             Complete        : "transferred", // in chat history
             // Commands:
@@ -61,9 +67,15 @@ namespace("Ifm.Chat.Strings");
         ConnectionLost      : "Caduta connessione",
         SenderIsUser        : "Tu",
         ChatStateComposing  : "sta scrivendo...",
+        // Commands:
+        Disconnect          : "Disconnetti",
+        DisconnectConfirm   : "Confermi?",
+        DisconnectConfirmNo : "No",
+        DisconnectConfirmYo : "Si",
 
         FileTransfer: {
             NotAvailable    : "Trasferimento file non disponibile",
+            NotAvailOther   : "Trasferimento file non disponibile con questo utente",
             TransferTitle   : "File", // + filename + status
             Complete        : "trasferito", // in chat history
             // Commands:

@@ -1,7 +1,7 @@
 
 //============================================================================
 
-// Copyright (c) IFM Infomaster. All rights reserved.
+// Copyright © IFM Infomaster. All rights reserved.
 
 //============================================================================
 
@@ -54,8 +54,12 @@ namespace("Ifm.Chat.Strings");
         ChatStateTalking    : "Chatting",
         ChatStateClosed     : "Chat terminated",
 
+        EventAssignment     : "Incoming call",
+        EventFailed         : "Call failed",
+
         FileTransfer: {
             NotAvailable    : "File transfer not available",
+            NotAvailOther   : "File transfer not available with this user",
             TransferTitle   : "File", // + filename + status
             Complete        : "transferred", // in chat history
             // Commands:
@@ -110,8 +114,12 @@ namespace("Ifm.Chat.Strings");
         ChatStateTalking    : "In conversazione",
         ChatStateClosed     : "Conversazione chiusa",
 
+        EventAssignment     : "Chiamata in arrivo",
+        EventFailed         : "Chiamata fallita",
+
         FileTransfer: {
             NotAvailable    : "Trasferimento file non disponibile",
+            NotAvailOther   : "Trasferimento file non disponibile con questo utente",
             TransferTitle   : "File", // + filename + status
             Complete        : "trasferito", // in chat history
             // Commands:

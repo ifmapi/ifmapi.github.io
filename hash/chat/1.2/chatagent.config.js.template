@@ -1,0 +1,124 @@
+﻿
+//============================================================================
+
+// Copyright (c) IFM Infomaster. All rights reserved.
+
+//============================================================================
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Chat Configuration Arguments
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+var config = {
+
+    // PhoneBar / Gateway
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // The local PhoneBar.exe or gateway service url; by default the chat
+    // connects to the PhoneBar locally (ws://localhost:22022) but can be
+    // set to one or more urls to establish loopback connections.
+    // examples:
+    //  "ws://localhost:22022", // single url
+    //  ["ws://localhost:22022", "wss://gateway:2443", ...], // multiple urls
+    //phonebar   : "",
+
+    // Chat service
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // The local or public chat service url for http(s) clients (via bosh)
+    // eg: "http://server:7070/http-bind/" or "https://chat.site.example/"
+    service    : "http://server:7070/http-bind/",
+
+    // The computer name of the xmpp server
+    server     : "xmppserver",
+
+    // The mediatype(s) that the current application can handle;
+    // default is NearRealTime; valid values are a combination of:
+    // * Ifm.PhoneBar.Mediatypes.NearRealTime (8)
+    // * Ifm.PhoneBar.Mediatypes.StoreAndForward (16)
+    mediatypes : Ifm.PhoneBar.Mediatypes.NearRealTime,
+    //           | Ifm.PhoneBar.Mediatypes.StoreAndForward
+
+    // Extension services
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // The local or public file transfer service url.
+    // Leave unset to disable this feature.
+    // eg: "ws://server:8880" or "wss://ft.site.example/"
+    ftservice  : "ws://server:8880",
+
+    // The *local* network discovery service url.
+    // Leave unset to disable this feature.
+    // The specified address should be in the same network of the clients
+    // eg: "ws://server:8880"
+    //ndservice  : "",
+
+    // Advanced settings
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // Non-standard configurations might use different resources;
+    // leave unset to use default ("xmpp-nrt", "xmpp-saf")
+    // domain_nrt : "",
+    // domain_saf : "",
+
+    // Non-standard configurations might use different resources;
+    // leave unset to use default ("lxadmin-nrt", "lxadmin-saf")
+    // admin_nrt  : "",
+    // admin_saf  : "",
+
+    // Optional settings
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // The nickname for the agent; any value set here overrides
+    // the PhoneBar agent's first name; leave unset to use default
+    // nickname   : "Operator",
+
+    // The url containing chat ui theme files; may be a relative
+    // or absolute url; default is Classic; factory themes are:
+    // * Classic - "themes/classic/"
+    // * Modern  - "themes/modern/"
+    // * Pop     - "themes/pop/"
+    // The value "" indicates that no theme will be loaded
+    theme      : "themes/classic/",
+
+    // In the factory ui, shows a button that permits
+    // the user to disconnect from the system; no message
+    // will be handled while disconnected
+    showdisconnect : false,
+
+    // In the factory ui, shows a button that permits
+    // the user to transfer the call through the PhoneBar
+    showtransfer   : true,
+
+    // The language used across the chat; default is "it";
+    // built-in values are: 
+    // "it", "en", "de", "fr", "nl", "es", "ca",
+    // "sv", "pt", "pt_br", "cn", "ja", "ru"
+    // -----------------------------------------------------------
+    // Please note that languages other than italian and english
+    // are currently partially supported and might contain errors!
+    // -----------------------------------------------------------
+    // Also notes that this apply to in-chat strings only!
+    // UI and integration strings must be explicitly set.
+    // -----------------------------------------------------------
+    language   : "it",
+
+    // A value that indicates whether to show a notification popup
+    // when the agents goes assigned; valid values are:
+    // 0 - disable, 1 - enable, 2 - when browser isn't in foreground
+    newcallpopupenabled : 0,
+
+    // A value that indicates how long the notification popup is shown:
+    // set 0 to use the value set in PhoneBar Options dialog, or an
+    // integer number representing the time (in seconds)
+    newcallpopuptimeout : 0,
+
+    // Enable diagnostic debug lines in console; valid values are:
+    // false, true, "verbose"
+    debug      : false
+
+};
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

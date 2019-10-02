@@ -1,0 +1,92 @@
+﻿
+//============================================================================
+
+// Copyright (c) IFM Infomaster. All rights reserved.
+
+//============================================================================
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+// Chat Configuration Arguments
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+var config = { 
+
+    // Chat service
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // The *public* chat service url for http(s) clients (via bosh)
+    // eg: "https://chat.site.example/"
+    service    : "https://chat.site.example/",
+
+    // The computer name of the xmpp server
+    server     : "xmppserver",
+
+    // The default Phones Service's virtual extension to call
+    extension  : "555",
+
+    // Extension services
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // The *public* file transfer service url.
+    // Leave unset to disable this feature.
+    // eg: "wss://ft.site.example/"
+    ftservice  : "wss://ft.site.example:8443",
+
+    // Advanced settings
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // Non-standard configurations might use different resources;
+    // leave unset to use default ("xmpp-nrt")
+    // domain     : "",
+
+    // Non-standard configurations might use different resources;
+    // leave unset to use default ("lxadmin-nrt")
+    // admin      : "",
+
+    // Optional settings
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    // The nickname for the calling user; can be overridden 
+    // with any string, default is "User" if none is specified
+    nickname   : "Guest",
+
+    // The title of the chat (window and tab); can be overridden
+    // with any string, default is "Chat" if none is specified
+    roomtitle  : "IFM Group - Chat",
+
+    // The url containing chat ui theme files; may be a relative
+    // or absolute url; default is Classic; factory themes are:
+    // * Classic - "themes/classic/"
+    // * Modern  - "themes/modern/"
+    // * Pop     - "themes/pop/"
+    // The value "" indicates that no theme will be loaded
+    theme      : "themes/modern/",
+
+    // Shows a button to terminate the current conversation without
+    // eventually closing the popup window; valid values are:
+    // false, or an object like in the following example:
+    // showdisconnect : { confirmation: true, canceltimeout: 3 },
+    showdisconnect : false,
+
+    // The language used across the chat; default is "it";
+    // built-in values are: 
+    // "it", "en", "de", "fr", "nl", "es", "ca", 
+    // "sv", "pt", "pt_br", "cn", "ja", "ru"
+    // -----------------------------------------------------------
+    // Please note that languages other than italian and english
+    // are currently partially supported and might contain errors!
+    // -----------------------------------------------------------
+    // Also notes that this apply to in-chat strings only!
+    // UI and integration strings must be explicitly set.
+    // -----------------------------------------------------------
+    language   : "it",
+
+    // Enable diagnostic debug lines in console; valid values are:
+    // false, true, "verbose"
+    debug      : false
+
+};
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
