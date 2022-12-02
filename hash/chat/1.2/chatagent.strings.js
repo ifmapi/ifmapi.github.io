@@ -1,7 +1,7 @@
 
 //============================================================================
 
-// Copyright © IFM Infomaster. All rights reserved.
+// Copyright (c) IFM Infomaster. All rights reserved.
 
 //============================================================================
 
@@ -56,6 +56,9 @@ namespace("Ifm.Chat.Strings");
 
         EventAssignment     : "Incoming call",
         EventFailed         : "Call failed",
+
+        //BotNickname         : "Bob the bot",
+        BotNickname         : "Synthetic",
 
         FileTransfer: {
             NotAvailable    : "File transfer not available",
@@ -116,6 +119,9 @@ namespace("Ifm.Chat.Strings");
 
         EventAssignment     : "Chiamata in arrivo",
         EventFailed         : "Chiamata fallita",
+
+        //BotNickname         : "Rob il bot",
+        BotNickname         : "Synthetic",
 
         FileTransfer: {
             NotAvailable    : "Trasferimento file non disponibile",

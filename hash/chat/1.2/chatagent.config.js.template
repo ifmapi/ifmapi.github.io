@@ -27,8 +27,9 @@ var config = {
     // Chat service
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-    // The local or public chat service url for http(s) clients (via bosh)
-    // eg: "http://server:7070/http-bind/" or "https://chat.site.example/"
+    // The local or public chat service url for web clients (BOSH).
+    // Note: WebSocket protocol requires Openfire 4.7.1+
+    // eg: "http(s)://host(:port)/http-bind/" or "ws(s)://host(:port)/ws/"
     service    : "http://server:7070/http-bind/",
 
     // The computer name of the xmpp server
