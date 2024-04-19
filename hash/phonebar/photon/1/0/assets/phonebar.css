@@ -1,0 +1,305 @@
+
+/*============================================================================
+ |
+ | Copyright (c) IFM Infomaster. All rights reserved.
+ |
+ ===========================================================================*/
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    #phonebar main styles
+    version 1.0.61-3420
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Main UI Elements
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+html, body {
+    height: 100%; /* cover viewport */
+}
+
+.phonebar-app-space {
+    overflow : auto !important;
+    flex : 1; /* layout has flex display, this fills vertically */
+}
+
+.phonebar-state-text, .phonebar-state-time-text {
+    overflow: hidden; /* prevents breaking toolbar spaces */
+}
+
+.phonebar-state-error-text, .phonebar-phone-state-text {
+    color       : orangered;
+    font-weight : bold;
+}
+
+.phonebar-number-label {
+    padding-top     : 6px; /* corrects material icon alignment */
+    padding-right   : 2px;
+}
+
+.phonebar-number-label[disabled] {
+    color: var(--alt-mid-color);
+}
+
+.phonebar-number-input {
+    border : 0; /* needed to prevent 3D border style */
+    border-bottom    : 1px solid var(--bg-highlight);
+    width            : 20px;
+    color            : var(--alt-foreground);
+    background-color : transparent;
+    transition       : all 0.2s ease-in-out;
+}
+
+.phonebar-number-input:hover {
+    width : 60px;
+}
+
+.phonebar-number-input:focus {
+    min-width        : 60px;
+    width            : 25%;
+    color            : var(--foreground);
+    background-color : var(--bg-highlight);
+}
+
+.phonebar-number-input:disabled { 
+    border : 0;
+    width  : 20px; /* prevents growing */
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Special styled buttons
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+*[class^="phonebar-phone-key"] {
+    line-height : 40px;
+    width       : 40px;
+    height      : 40px;
+    text-align  : center;
+}
+
+.phonebar-panic-button .floating {
+    position : absolute;
+    right    : 20px;
+    bottom   : 20px;
+    width    : 72px;
+    height   : 72px;
+    z-index  : 10000;
+}
+
+.phonebar-phone-hangup-button, .phonebar-phone-pickup-button {
+    width : 84px; /* double size + padding */
+}
+
+.phonebar-start-recording-button, .phonebar-stop-recording-button,
+.phonebar-mute-recording-button, .phonebar-unmute-recording-button,
+.phonebar-phone-microphone-on-button {
+    color : orangered;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Generic Form Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-form {
+    text-align: left;
+}
+
+.phonebar-form-label {
+    display: inline-block;
+    width: 180px; /* stay inline with larger input */
+}
+
+.phonebar-form-input {
+    width         : 200px; 
+    margin-bottom : 10px;
+    margin-left   : 10px;
+}
+
+.phonebar-form-input.large {
+    width         : 280px; /* stay inline with larger input */
+}
+
+.phonebar-form-input.small {
+    width         : 100px;
+}
+
+.phonebar-form-input.right-aligned {
+    text-align: right;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Incoming Call Popup Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-incoming-call-card-content {
+    background-color : var(--alt-background);
+    padding          : 40px;
+    text-align       : center;
+}
+
+.phonebar-incoming-call-text {
+    color     : var(--alt-foreground);
+    font-size : 32px;
+}
+
+.phonebar-incoming-call-number {
+    font-size: 40px;
+}
+
+.phonebar-incoming-call-campaign {
+    font-size : 32px;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Transfer Form Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-transfer-agent-list,
+.phonebar-transfer-campaign-list {
+    width : 100%;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Campaign Form Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-campaignlist-card {
+    right  : 8px;
+    top    : 60px;
+    left   : auto;
+    bottom : auto;
+}
+
+.phonebar-campaignlist-card-content {
+    padding : 8px;
+}
+
+.phonebar-campaignlist-card-table {
+    width  : 100%;
+    height : 100%;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Queue Card Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-queueinfo-card {
+    right  : 8px;
+    top    : 100px;
+    left   : inherit;
+    bottom : inherit;
+    min-width : inherit;
+}
+
+.phonebar-queueinfo-card-content {
+    padding : 8px;
+    font-size : larger;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  System and Supervisor MessageBox
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-message {
+    /* a notification message shown using Band */
+    background-color: #d0d6dd;
+    color           : #111;
+    width           : 100%;
+    line-height     : 160px;
+    font-size       : xx-large;
+    text-align      : center;
+}
+
+.phonebar-supervisor-message-critical,
+.phonebar-supervisor-message-warning,
+.phonebar-supervisor-message-information {
+    display        : block;
+    color          : #fff;
+    padding        : 4px;
+    padding-top    : 8px;
+}
+
+.phonebar-supervisor-message-critical {
+    background-color : #d93826; /* #f77; */
+}
+
+.phonebar-supervisor-message-warning {
+    background-color : #d99126; /* #fc7; */
+}
+
+.phonebar-supervisor-message-information {
+    background-color : #178232; /* #7f9; */
+}
+
+.phonebar-message-text, .phonebar-supervisor-message-text {
+    padding : 40px;
+    font-size : 20px;
+    font-weight : bold;
+}
+
+.phonebar-message-title, .phonebar-supervisor-message-title {
+    font-size      : 24px;
+    line-height    : 1;
+    vertical-align : top;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Log text
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-log-text {
+    font-size : .9em;
+    display   : block;
+}
+
+.phonebar-log-text-timestamp {
+    display : none;
+    color : var(--mid-color);
+}
+
+.phonebar-log-text-line  { color : var(--midhigh-color); }
+
+.phonebar-log-text-debug { color : var(--mid-color); }
+.phonebar-log-text-warn  { color : #950; }
+.phonebar-log-text-error { color : #900; }
+
+.phonebar-log-text-warn, .phonebar-log-text-error {
+    font-weight : bold;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Effects
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-panic-effect {
+    animation : 2000ms phonebar-panic-animation;
+}
+
+@keyframes phonebar-panic-animation { 
+    50% { background-color: #f70; } 
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
