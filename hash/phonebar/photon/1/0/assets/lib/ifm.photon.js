@@ -77,7 +77,7 @@
       return window ? window.document : null;
     },
 
-    open(url, id, options = {}) {
+    open(url, id, options = {}, onload) {
       const popup    = (options.popup !== false); // true by default
 
       const left     = options.left     || 'auto';
@@ -127,14 +127,18 @@
             newDocument.title = options.title;
           }
   
-          const container = newDocument.getElementById(layoutId) || newDocument.body;
-          if (container) {
+          const dialogBody = newDocument.getElementById(layoutId) || newDocument.body;
+          if (dialogBody) {
             if (options.html) {
-              container.innerHTML = options.html;
+              dialogBody.innerHTML = options.html;
             }
     
-            if (container.style.display === 'none') {
-              container.style.removeProperty('display');
+            if (dialogBody.style.display === 'none') {
+              dialogBody.style.removeProperty('display');
+            }
+
+            if (Ifm.Type.isFunction(onload)) {
+              onload(newWindow, dialogBody);
             }
           } else {
             console.warn(`Window "${id}" (${url}) has no valid layout container or body`);
@@ -244,11 +248,11 @@
 
     Cards : {
 
-      show(html, id, dialog, fade, level, title, options = {}) {
+      show(html, id, dialog, fade, level, title, options = {}, onload) {
         options.url = options.url || 'popup.html'; // update options object
         options.html = html;
         options.title = title;
-        return Ifm.Photon.Windows.open(options.url, id, options);
+        return Ifm.Photon.Windows.open(options.url, id, options, onload);
       },
 
       showDialog(html, id, title, buttons, options = {}, onload) {

@@ -48,19 +48,22 @@ html, body {
 .phonebar-number-input {
     border : 0; /* needed to prevent 3D border style */
     border-bottom    : 1px solid var(--bg-highlight);
-    width            : 20px;
+    width            : 25%;
     color            : var(--alt-foreground);
     background-color : transparent;
     transition       : all 0.2s ease-in-out;
 }
 
+.phonebar-number-input:placeholder-shown {
+    width : 20px;
+}
+
 .phonebar-number-input:hover {
-    width : 60px;
+    min-width : 150px;
+    width     : 25%;
 }
 
 .phonebar-number-input:focus {
-    min-width        : 60px;
-    width            : 25%;
     color            : var(--foreground);
     background-color : var(--bg-highlight);
 }
@@ -158,6 +161,16 @@ html, body {
 
 .phonebar-incoming-call-campaign {
     font-size : 32px;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Dialpad Card Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-dialpad-card-content {
+    background-color : var(--alt-background);
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

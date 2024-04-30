@@ -148,6 +148,31 @@
     }], { width : 600, height : 210 });
   };
 
+  commands.showDialpad = function() {
+    const phonebar = Ifm.PhoneBar.instance;
+    const strings  = Ifm.PhoneBar.Strings[phonebar.language()];
+
+    if (Ifm.Dom.Photon.Cards.isShown('dialpad-card')) return;
+
+    Ifm.Dom.Photon.Cards.show('', 'dialpad-card', strings.DialpadTitle,
+      false, false, 0, { width : 148, height : 184 }, function(card, body) {
+      const buttons = document.getElementById('phonebar-phone-dialpad-buttons');
+
+      for (const button of buttons.children) {
+        button.removeAttribute('disabled');
+      }
+
+      body.appendChild(buttons);
+      body.classList.add('phonebar-dialpad-card-content');
+
+      card.onclosed = function() {
+         // take buttons back
+         document.getElementById('phonebar-phone-dialpad-holder').appendChild(buttons);
+      };
+    });
+  };
+
+/*
   commands.showOptionsDialog = function() {
     const phonebar = Ifm.PhoneBar.instance;
     const strings  = Ifm.PhoneBar.Strings[phonebar.language()];
@@ -161,37 +186,39 @@
   </fieldset>
 `;
 
-    Ifm.Dom.Photon.Cards.show(html, 'login-dialog', strings.OptionsTitle, [{
+    Ifm.Dom.Photon.Cards.show(html, 'options-dialog', strings.OptionsTitle, [{
       text: strings.ButtonOK,
       click: function(dialog, dialogBody) { }
     }, {
       text: strings.ButtonCancel
     }]);
   }
-
+*/
   commands.showMenu = function() {
     const phonebar = Ifm.PhoneBar.instance;
     const strings  = Ifm.PhoneBar.Strings[phonebar.language()];
     const alt   = Ifm.Photon.input.alt;
     const shift = Ifm.Photon.input.shift;
     const host  = Ifm.Photon.app.isHosted;
-  
-    const userinfo = phonebar.isLoggedIn()
+
+    const loggedIn = phonebar.isLoggedIn();
+    const userinfo = loggedIn
           ? `${phonebar.agent.getName()} ${phonebar.agent.extension}`
           : strings.NotLoggedInState;
   
     Ifm.Dom.Photon.Menu.choose([
       { label : userinfo, disabled : true },
       //{ label : strings.MenuItemOptions, value : 'options' },
-      { label : '-', visible : phonebar.isLoggedIn() },
-      { label : strings.MenuItemPanic, value : 'panic', visible : phonebar.isLoggedIn() },
-      //{ label : '-' },
-      //{ label : strings.MenuItemQueueInfo, value : 'queue', checked : false },
-      //{ label : strings.MenuItemDialpad, value : 'dialpad', checked : false },
+      { label : '-', visible : loggedIn },
+      { label : strings.MenuItemPanic, value : 'panic', visible : loggedIn },
+      { label : '-', visible : loggedIn },
+      { label : strings.MenuItemCampaigns, value : 'campaigns', visible : loggedIn, checked : Ifm.Dom.Photon.Cards.isShown('campaignlist-card') },
+      { label : strings.MenuItemQueueInfo, value : 'queue', visible : loggedIn, checked : Ifm.Dom.Photon.Cards.isShown('queueinfo-card') },
+      { label : strings.MenuItemDialpad, value : 'dialpad', visible : loggedIn, checked : Ifm.Dom.Photon.Cards.isShown('dialpad-card') },
       { label : '-', visible : (alt || shift) && host },
       { label : strings.MenuItemDevTools, value : 'devtools', visible : shift && host },
       { label : strings.MenuItemRefresh, value : 'refresh', visible : alt && host },
-      //{ label : strings.MenuItemReload, value : 'reload', visible : alt && host },
+      { label : strings.MenuItemReload, value : 'reload', visible : alt && host },
       //{ label : strings.MenuItemShowLogs, value : 'logs', visible : shift && host },
       { label : '-' },
       { label : strings.MenuItemAutoHide, value : 'autohide', visible : host, checked : Ifm.Photon.app.host.autoHide },
@@ -199,18 +226,43 @@
       { label : strings.MenuItemExit, value : 'exit', visible : host }
     ], value => {
         switch(value) {
-          case 'about'    : commands.about(); break;
-          case 'autohide' : Ifm.Photon.app.host.autoHide = !Ifm.Photon.app.host.autoHide; break;
-          case 'devtools' : Ifm.Photon.app.host.openDevTools(); break;
-          case 'dialpad'  : break; // TODO: commands.toggleDialpad(); break;
-          case 'exit'     : close(); break;
-          case 'options'  : commands.showOptionsDialog(); break;
-          case 'panic'    : commands.panic(); break;
-          case 'queue'    : break; // TODO: commands.toggleQueueInfo(); break;
-          case 'refresh'  : Ifm.Photon.app.host.refresh(); break;
-          case 'reload'   : Ifm.Photon.app.host.reload(); break;
+          case 'about'     : commands.about(); break;
+          case 'autohide'  : Ifm.Photon.app.host.autoHide = !Ifm.Photon.app.host.autoHide; break;
+          case 'campaigns' : commands.toggleCampaigns(); break;
+          case 'devtools'  : Ifm.Photon.app.host.openDevTools(); break;
+          case 'dialpad'   : commands.toggleDialpad(); break;
+          case 'exit'      : close(); break;
+          case 'options'   : commands.showOptionsDialog(); break;
+          case 'panic'     : commands.panic(); break;
+          case 'queue'     : commands.toggleQueueInfo(); break;
+          case 'refresh'   : Ifm.Photon.app.host.refresh(); break;
+          case 'reload'    : Ifm.Photon.app.host.reload(); break;
         }
     });
+  };
+
+  commands.toggleCampaigns = function() {
+    if (Ifm.Dom.Photon.Cards.isShown('campaignlist-card')) {
+      Ifm.Dom.Photon.Cards.close('campaignlist-card');
+    } else {
+      commands.showAssignedCampaignList();
+    }
+  };
+
+  commands.toggleDialpad = function() {
+    if (Ifm.Dom.Photon.Cards.isShown('dialpad-card')) {
+      Ifm.Dom.Photon.Cards.close('dialpad-card');
+    } else {
+      commands.showDialpad();
+    }
+  };
+
+  commands.toggleQueueInfo = function() {
+    if (Ifm.Dom.Photon.Cards.isShown('queueinfo-card')) {
+      Ifm.Dom.Photon.Cards.close('queueinfo-card');
+    } else {
+      commands.showQueueInfo();
+    }
   };
 
 })();
