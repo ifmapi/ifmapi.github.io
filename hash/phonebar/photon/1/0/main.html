@@ -32,15 +32,16 @@
 
 <body>
 
-  <!-- 
+<!-- 
 // Layout 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  -->
 
   <div id="page-layout" class="alt-background" style="display:none;">
 
-    <!-- Agent Toolbar -->
     <div class="phonebar-toolbar toolbar toolbar-body">
+      <!-- Agent Toolbar -->
+
       <button class="phonebar-login-ready-button material-icons"><i class="material-icons">play_arrow</i></button>
       <button class="phonebar-pause-button material-icons"><i class="material-icons">pause</i></button>
       <button class="phonebar-logout-button material-icons"><i class="material-icons">stop</i></button>
@@ -50,7 +51,7 @@
         <span class="phonebar-state-time-text toolbar-label"></span>
       </span>
 
-      <label class="phonebar-number-label"><i class="material-icons">dialpad</i></label>
+      <label class="phonebar-number-label"><i class="material-icons">settings_phone</i></label>
       <input class="phonebar-number-input">
 
       <button class="phonebar-abort-call-button material-icons"><i class="material-icons">clear</i></button>
@@ -64,31 +65,22 @@
       <button class="phonebar-mute-recording-button material-icons"><i class="material-icons">pause_circle_outline</i></button>
       <button class="phonebar-unmute-recording-button material-icons blink"><i class="material-icons">pause_circle_filled</i></button>
 
-      <span class="toolbar-separator">|</span>
+      <!-- Phone Toolbar -->
 
-      <button class="phonebar-campaignlist-button material-icons"><i class="material-icons">assignment</i></button>
-      <button class="phonebar-queueinfo-button material-icons"><i class="material-icons">repeat</i></button>
-
-      <button class="phonebar-mainmenu-button material-icons"><i class="material-icons">more_vert</i></button>
-    </div>
-
-    <!-- Phone Toolbar -->
-    <div class="phonebar-phone-toolbar toolbar toolbar-body">
-
-      <span class="phonebar-phone-speakers-label toolbar-separator"> </span>
+      <!-- <span class="phonebar-phone-speakers-label toolbar-separator"> </span>
       <label class="phonebar-phone-speakers-label material-icons"><i class="material-icons">headset</i></label>
       <meter class="phonebar-phone-speakers-meter" value="0" min="0" low="25" optimum="50" high="90" max="100"></meter>
 
       <span class="phonebar-phone-microphone-label toolbar-separator"> </span>
       <label class="phonebar-phone-microphone-label material-icons"><i class="material-icons">mic</i></label>
-      <meter class="phonebar-phone-microphone-meter" value="0" min="0" low="25" optimum="50" high="90" max="100"></meter>
+      <meter class="phonebar-phone-microphone-meter" value="0" min="0" low="25" optimum="50" high="90" max="100"></meter> -->
 
       <button class="phonebar-phone-microphone-off-button material-icons"><i class="material-icons">mic_off</i></button>
       <button class="phonebar-phone-microphone-on-button material-icons blink"><i class="material-icons">mic_off</i></button>
 
-      <span class="toolbar-flex-group">
+      <!-- <span class="toolbar-flex-group">
         <span class="phonebar-phone-state-text toolbar-label"></span>
-      </span>
+      </span> -->
 
       <span class="toolbar-separator">|</span>
 
@@ -107,7 +99,19 @@
       <button class="phonebar-phone-enter-conference-button material-icons"><i class="material-icons">call_merge</i></button>
       <button class="phonebar-phone-leave-conference-button material-icons"><i class="material-icons">call_split</i></button>
 
-      <div id="phonebar-phone-dialpad-buttons" style="display:none !important;">
+      <!-- Other Items -->
+
+      <span class="toolbar-separator">|</span>
+
+      <button class="phonebar-campaignlist-button material-icons"><i class="material-icons">assignment</i></button>
+      <button class="phonebar-queueinfo-button material-icons"><i class="material-icons">repeat</i></button>
+      <button class="phonebar-phone-dialpad-toggle-button material-icons"><i class="material-icons">dialpad</i></button>
+
+      <button class="phonebar-mainmenu-button material-icons"><i class="material-icons">more_vert</i></button>
+    </div>
+
+    <div id="phonebar-phone-dialpad-holder" style="display:none !important;">
+      <div id="phonebar-phone-dialpad-buttons">
         <button class="phonebar-phone-key-digit1 level-1">1</button>
         <button class="phonebar-phone-key-digit2 level-1">2</button>
         <button class="phonebar-phone-key-digit3 level-1">3</button>
@@ -121,11 +125,11 @@
         <button class="phonebar-phone-key-hash level-1">#</button>
         <button class="phonebar-phone-key-star level-1">*</button>
       </div>
+    </div>
 
-      <div id="media_div" style="display:none !important;">
-        <audio id="remote_audio0" autoplay></audio>
-        <audio id="remote_audio1" autoplay></audio>
-      </div>
+    <div id="media_div" style="display:none !important;">
+      <audio id="remote_audio0" autoplay></audio>
+      <audio id="remote_audio1" autoplay></audio>
     </div>
   </div>
 
