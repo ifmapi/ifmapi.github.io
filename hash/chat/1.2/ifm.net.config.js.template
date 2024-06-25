@@ -1,0 +1,17 @@
+
+//============================================================================
+
+// Copyright (c) IFM Infomaster. All rights reserved.
+
+//============================================================================
+
+Ifm.Net.TimeProvider.settings = {
+
+  // The local or public WebSocket Gateway service url.
+  // Value can be either a single string:
+  //  eg: "ws://10.110.10.110:2080/" or "wss://phonebar.example.org:2443/"
+  // or an array of strings between []:
+  //  eg: ["ws://host1:2080/", "wss://host2.example.org:2443/"]
+//  service : [ "ws://host:2080/", ... ]
+
+};

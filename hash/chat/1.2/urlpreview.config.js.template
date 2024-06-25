@@ -1,0 +1,16 @@
+
+//============================================================================
+
+// Copyright (c) IFM Infomaster. All rights reserved.
+
+//============================================================================
+
+"use strict";
+
+namespace("Ifm.Chat.Extras.UrlPreview").settings = {
+
+  // Authorization Key to access https://api.linkpreview.net
+  // Create a free account at https://my.linkpreview.net/auth/new
+  authKey : ''
+
+};

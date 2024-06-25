@@ -63,7 +63,7 @@ var config = {
     // * Modern  - "themes/modern/"
     // * Pop     - "themes/pop/"
     // The value "" indicates that no theme will be loaded
-    theme      : "themes/modern/",
+    theme      : "themes/pop/",
 
     // Shows a button to terminate the current conversation without
     // eventually closing the popup window; valid values are:
