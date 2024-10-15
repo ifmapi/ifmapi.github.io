@@ -1,0 +1,663 @@
+
+/*============================================================================
+ |
+ | Copyright (c) IFM Infomaster. All rights reserved.
+ |
+ ===========================================================================*/
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    ifm common styles
+    version 1.1.0-0
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Reset
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+html, body, div, ul, ol, li, dl, dt, dd,
+h1, h2, h3, h4, h5, h6, form, p,
+blockquote, fieldset, input, abbr, article,
+aside, command, details, figcaption, figure,
+footer, header, hgroup, mark, meter, nav,
+output, progress, section, summary, time {
+    margin  : 0;
+    padding : 0;
+}
+
+h1, h2, h3, h4, h5, h6, pre, code,
+address, caption, cite, code, em, strong,
+th, figcaption, input {
+    font-weight : normal;
+    font-style  : normal;
+}
+
+fieldset, iframe, img { border: none; }
+
+caption, th { text-align: left; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+input, select {
+    -moz-box-sizing    : border-box;
+    -webkit-box-sizing : border-box;
+    box-sizing         : border-box;
+}
+
+code {
+    white-space: pre;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Default Palette (Light)
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+:root {
+
+  /**
+   * Colors go from low (tipically background) to high (tipically foreground)
+   */
+
+  --low-color         : #fff;    /* background highlight (e.g. hovering) */
+  --midlow-color      : #eee;    /* background */
+  --mid-color         : #aaa;    /* non-functional items (e.g. disabled) */
+  --midhigh-color     : #555;    /* foreground decorations (e.g. border) */
+  --high-color        : #333;    /* foreground (e.g text and captions) */
+
+  /* Alternative colors */
+
+  --alt-low-color     : #49e;    /* background highlight (e.g. hovering) */
+  --alt-midlow-color  : #7bf;    /* background */
+  --alt-mid-color     : #69c;    /* non-functional items (e.g. disabled) */
+  --alt-midhigh-color : #d5e5f5; /* foreground decorations (e.g. border) */
+  --alt-high-color    : #fff;    /* foreground (e.g text and captions) */
+
+  /* Accent colors */
+
+  --accent-color      : #f70;
+  --accent-high-color : #ed9242;
+
+  /* Usage Aliases */
+
+  --bg-highlight      : var(--low-color);
+  --background        : var(--midlow-color);
+  --foreground        : var(--high-color);
+
+  --alt-bg-highlight  : var(--alt-low-color);
+  --alt-background    : var(--alt-midlow-color);
+  --alt-foreground    : var(--alt-high-color);
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Defaults
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+html {
+    background-color: var(--background);
+    height: 100%;
+}
+
+body, input, button, select {
+    font: 16px Calibri, "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+label {
+    font-size: 18px;
+} 
+
+input, select {
+    font-size: 20px;
+    min-width: 20px;
+}
+
+small .small {
+    font-size: 10px;
+}
+
+body {
+    background-color: transparent;
+    color: var(--high-color);
+}
+
+button {
+    border: none;
+    background-color: var(--alt-background);
+    color: var(--alt-foreground);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 2px;
+    padding: 8px;
+    border-radius: 2px;
+    -moz-transition    : background-color 0.2s, color 0.2s;
+    -o-transition      : background-color 0.2s, color 0.2s;
+    -webkit-transition : background-color 0.2s, color 0.2s;
+    transition         : background-color 0.2s, color 0.2s;
+}
+
+button:hover {
+    background-color: var(--alt-bg-highlight);
+}
+
+button:disabled {
+    cursor: default;
+    color: var(--alt-mid-color);
+    background-color: transparent;
+    pointer-events: none;
+}
+
+button:focus, input:focus, select:focus, textarea:focus {
+    outline: none;
+}
+
+label {
+    display: inline-block;
+}
+
+input[type='checkbox'] {
+    position: relative;
+    top     : 2px;
+    height  : 16px;
+}
+
+input[type='checkbox'].right {
+    float: right;
+}
+
+select {
+    overflow: auto;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Common Element Features
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.default-background {
+    background-color: var(--background);
+}
+
+.alt-background {
+    background-color: var(--alt-background);
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.highlight {
+    color: yellow !important;
+}
+
+.selected {
+    background-color: var(--alt-mid-color) !important;
+}
+
+.selected:disabled {
+    background-color: transparent !important;
+}
+
+.solid {
+    background-color: #7bf !important; /* L:100 */
+}
+
+.solid:hover {
+    background-color: #4197ee !important;  /* L:93 */
+}
+
+.accent-solid {
+    background-color: var(--accent-color) !important; /* L:100 */
+}
+
+.accent-solid:hover {
+    background-color: var(--accent-high-color) !important;  /* L:93 */
+}
+
+.accent-solid:disabled {
+    background-color: transparent !important;
+}
+
+.unselectable, .toolbar {
+    -moz-user-select    : none;
+    -khtml-user-select  : none;
+    -webkit-user-select : none;
+    -o-user-select      : none;
+    user-select         : none;
+}
+
+.rounded {
+    border-radius: 50%;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Page Elements
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+#page-layout {
+    position : absolute;
+    left     : 0;
+    top      : 0;
+    right    : 0;
+    bottom   : 0;
+    display  : flex;
+    flex-direction : column;
+}
+
+.dialog-definitions {
+    display: none !important;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Ifm Dom Elements
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+div.dialog > div.menu {
+    margin: 8px;
+}
+
+div.menu > select {
+    border    : 0;
+    font-size : 24px;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Generic Effects
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.fade-effect {
+    filter         : progid:DXImageTransform.Microsoft.Blur(PixelRadius='1'); /* IE<9 */
+    -moz-filter    : blur(1px);
+    -ms-filter     : blur(1px);
+    -o-filter      : blur(1px);
+    -webkit-filter : blur(1px);
+    filter         : blur(1px);
+}
+
+button {
+    position: relative;
+    overflow: hidden;
+    -moz-transition    : 0.4s;
+    -o-transition      : 0.4s;
+    -webkit-transition : 0.4s;
+    transition         : 0.4s;
+}
+
+button:after {
+    background: #fff;
+    content  : "";
+    display  : block;
+    position : absolute;
+    left   : 0;
+    top    : 0;
+    width  : 100%;
+    height : 100%;
+    border-radius: 50%;
+    zoom      : 200%;
+    transform : scale(2);
+    opacity: 0;
+    -moz-transition    : all 0.75s;
+    -o-transition      : all 0.75s;
+    -webkit-transition : all 0.75s;
+    transition         : all 0.75s;
+}
+
+button:active:after {
+    left   : 50%;
+    top    : 50%;
+    width  : 0;
+    height : 0;
+    opacity: 0.2;
+    -moz-transition    : 0s;
+    -o-transition      : 0s;
+    -webkit-transition : 0s;
+    transition         : 0s;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Generic Animations
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.accent-light-effect, .accent-light-effect:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0, var(--accent-color) 40%, #ffffff 50%, var(--accent-color) 60%, var(--accent-color) 100%);
+    background-repeat   : no-repeat;
+    background-position : 0px;
+    background-size     : 2000px;
+    background-color    : var(--accent-color);
+    -moz-animation    : light-animation 10s infinite ease-in-out;
+    -o-animation      : light-animation 10s infinite ease-in-out;
+    -webkit-animation : light-animation 10s infinite ease-in-out;
+    animation         : light-animation 10s infinite ease-in-out;
+}
+
+@-moz-keyframes light-animation {
+    0%   { background-position: -10000px; }
+    100% { background-position: 0; }
+}
+
+@-o-keyframes light-animation {
+    0%   { background-position: -10000px; }
+    100% { background-position: 0; }
+}
+
+@-webkit-keyframes light-animation {
+    0%   { background-position: -10000px; }
+    100% { background-position: 0; }
+}
+
+@keyframes light-animation {
+    0%   { background-position: -10000px; }
+    100% { background-position: 0; }
+}
+
+.slide-rtl {
+    position: relative;
+    left: 0;
+
+    -moz-animation:    slide-rtl-animation 400ms ease-in-out;
+    -o-animation:      slide-rtl-animation 400ms ease-in-out;
+    -webkit-animation: slide-rtl-animation 400ms ease-in-out;
+    animation:         slide-rtl-animation 400ms ease-in-out;
+}
+
+@-moz-keyframes slide-rtl-animation {
+    0%   { left: 100%; }
+}
+
+@-o-keyframes slide-rtl-animation {
+    0%   { left: 100%; }
+}
+
+@-webkit-keyframes slide-rtl-animation {
+    0%   { left: 100%; }
+}
+
+@keyframes slide-rtl-animation {
+    0%   { left: 100%; }
+}
+
+.blink {
+    -moz-animation:     blink 1s step-start 0s infinite;
+    -o-animation:       blink 1s step-start 0s infinite;
+    -webkit-animation:  blink 1s step-start 0s infinite;
+    animation:          blink 1s step-start 0s infinite;
+}
+
+@-moz-keyframes blink {
+    50%  { opacity: 0.0; }
+}
+
+@-o-keyframes blink {
+    50%  { opacity: 0.0; }
+}
+
+@-webkit-keyframes blink {
+    50%  { opacity: 0.0; }
+}
+
+@keyframes blink {
+    50%  { opacity: 0.0; }
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Card and Levels
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+/**
+ * Rules:
+ *     card-x          => x = level (height from page)
+ *     card-x hovering => x ++1 (higher)
+ *     card-x clicked  => x --1 (lower)
+ *     card-x disabled => x = 0 (no elevation)
+ * Defaults:
+ *     dialog  => level 3 (medium)
+ *     band    => level 5 (highest)
+ */
+
+.level-1:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.level-1, .level-2:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.level-2, .level-3:active, .level-1:hover, .dialog {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.level-3, .level-4:active, .level-2:hover, .dialog:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.level-4, .level-5:active, .level-3:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.level-5, .level-4:hover, .band {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.level-5:hover, .band:hover {
+    box-shadow: 0 24px 46px rgba(0, 0, 0, 0.34), 0 18px 14px rgba(0, 0, 0, 0.21);
+}
+
+.level-1:disabled, .level-2:disabled, .level-3:disabled, .level-4:disabled, .level-5:disabled {
+    box-shadow: none;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Dialog Elements and Animations
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.dialog {
+    position : absolute;
+    left     : 25%;
+    right    : 25%;
+    top      : 25%;
+    height   : auto;
+    max-width : 580px;
+    min-width : 340px;
+    background-color : #fff;
+}
+
+.band, .dialog {
+    -moz-transition    : all 0.2s ease-in-out;
+    -o-transition      : all 0.2s ease-in-out;
+    -webkit-transition : all 0.2s ease-in-out;
+    transition         : all 0.2s ease-in-out;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Dialog Animations
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.dialog {
+    -moz-animation              : dialog-animation-x 300ms ease-out,
+                                  dialog-animation-y 600ms ease-out 300ms;
+    -moz-animation-fill-mode    : both;
+    -o-animation                : dialog-animation-x 300ms ease-out,
+                                  dialog-animation-y 600ms ease-out 300ms;
+    -o-animation-fill-mode      : both;
+    -webkit-animation           : dialog-animation-x 300ms ease-out,
+                                  dialog-animation-y 600ms ease-out 300ms;
+    -webkit-animation-fill-mode : both;
+    animation                   : dialog-animation-x 300ms ease-out,
+                                  dialog-animation-y 600ms ease-out 300ms;
+    animation-fill-mode         : both;
+    overflow: hidden !important; /* required to make animation smooth */
+}
+
+@keyframes dialog-animation-x {
+    from { left: 50%; right: 50%; }
+}
+
+@-webkit-keyframes dialog-animation-x {
+    from { left: 50%; right: 50%; }
+}
+
+@keyframes dialog-animation-y {
+    from { max-height: 0;    top: 27%; }
+    to   { max-height: 100%; }
+}
+
+@-webkit-keyframes dialog-animation-y {
+    from { max-height: 0;    top: 27%; }
+    to   { max-height: 100%; }
+}
+
+.dialog-close {
+    position : absolute;
+    top      : 4px;
+    right    : 4px;
+
+    -moz-animation              : dialog-close-animation 400ms ease-out 1200ms;
+    -moz-animation-fill-mode    : both;
+    -o-animation                : dialog-close-animation 400ms ease-out 1200ms;
+    -o-animation-fill-mode      : both;
+    -webkit-animation           : dialog-close-animation 400ms ease-out 1200ms;
+    -webkit-animation-fill-mode : both;
+    animation                   : dialog-close-animation 400ms ease-out 1200ms;
+    animation-fill-mode         : both;
+}
+
+@keyframes dialog-close-animation {
+    0%   { top: 1000px; }
+    75%  { top: 0; }
+}
+
+@-webkit-keyframes dialog-close-animation {
+    0%   { top: 1000px; }
+    75%  { top: 0; }
+}
+
+.dialog-close-button {
+    font: 20px Webdings;
+    text-transform: none;
+    color: white;
+    width  : 40px;
+    height : 40px;
+    border-radius: 50%;
+    margin : 0px;
+    padding: 0px;
+}
+
+.dialog-title {
+    font: 24px "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: 100;
+    background-color : var(--alt-high-color);
+    color            : var(--alt-midlow-color);
+    padding : 8px;
+    vertical-align: middle;
+}
+
+.dialog-body {
+    padding: 40px;
+    background-color: var(--background);
+    text-align: center;
+    overflow: auto;
+}
+
+.dialog-buttons {
+    background-color: var(--alt-background);
+    text-align: center;
+    padding: 4px;
+}
+
+.dialog-buttons:empty {
+    padding: 0;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Toolbar Elements
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.toolbar {
+    display      : flex; 
+    align-items  : center; 
+    align-content: stretch;
+}
+
+.toolbar > button:hover {
+    background-color: var(--alt-bg-highlight);
+}
+
+.toolbar > button, .toolbar > button:disabled {
+    background-color: transparent;
+}
+
+.toolbar > button.selected {
+    background-color: var(--alt-mid-color);
+}
+
+.toolbar > label {
+    color: var(--alt-foreground);
+}
+
+.toolbar-body {
+    background-color: var(--alt-background);
+    color: var(--alt-high-color);
+}
+
+.toolbar-group {
+    display: inline-block;
+    padding: 4px;
+}
+
+.toolbar-center-group {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toolbar-flex-group {
+    flex: 1 1;
+}
+
+.toolbar-label {
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 2px;
+}
+
+.toolbar-separator {
+    display: inline-block;
+    border: none;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: transparent;
+    background-color: transparent; /* to have a solid separator: var(--alt-mid-color) */;
+    width: 2px !important;
+    vertical-align: baseline;
+    line-height: 30px;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
