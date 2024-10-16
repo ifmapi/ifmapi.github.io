@@ -36,11 +36,19 @@
     host : {
       get autoHide() { return false; },
       set autoHide(value) { console.debug('Not implemented: host.set_autoHide()'); },
+
       get version() { return ''; },
+
       openDevTools() { console.debug('Not implemented: host.openDevTools()'); },
+
       refresh() { console.debug('Not implemented: host.refresh()'); },
+
       reload() { console.debug('Not implemented: host.reload()'); },
-      shakeWindow(window) { console.debug('Not implemented: host.shakeWindow()'); }
+
+      shakeWindow(window) { console.debug('Not implemented: host.shakeWindow()'); },
+
+      showNotification(options, window) { console.debug('Not implemented: host.shakeWindow()'); }
+
     },
 
     createId() { return Math.random().toString(16).substring(2).toUpperCase(); }
@@ -120,6 +128,9 @@
       if (id !== undefined) {
         _windows.set(id, newWindow);
       }
+
+      // augment object with Card functions:
+      newWindow.shake = Ifm.Photon.app.host.shakeWindow.bind(newWindow);
 
       newWindow.focus();
       Ifm.Dom.whenWindowNavigates(newWindow, url, function(newDocument) {

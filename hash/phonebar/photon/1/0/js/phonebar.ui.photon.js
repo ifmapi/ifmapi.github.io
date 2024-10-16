@@ -50,10 +50,12 @@
           const username = dialogBody.querySelector('#usernametxt').value;
           phonebar.agent.username = username;
 
+          dialog.close();
+
           const authConfig = await Ifm.Config.Provisioning.getAuthConfig(username,
                               ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
           if (authConfig.error) {
-            alert(authConfig.error); // TBR
+            commands.showMessage(authConfig.error, 'error'); // TBR
             return;
           }
 
@@ -65,7 +67,7 @@
 
           const authInfo = await Ifm.Iam.OAuth2.getToken(authData, username);
           if (!authInfo || !authInfo.token) {
-            alert('Invalid access token'); // TBR
+            commands.showMessage('Invalid access token', 'error'); // TBR
             return;
           }
 
@@ -74,10 +76,10 @@
           const siteList = await Ifm.Config.Provisioning.getSiteList(username, token,
                           ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
           if (!siteList) {
-            alert('Error retrieving site list'); // TBR
+            commands.showMessage('Error retrieving site list', 'error'); // TBR
             return;
           } else if (siteList.error) {
-            alert('Error retrieving site list: ' + siteList.error); // TBR
+            commands.showMessage('Error retrieving site list: ' + siteList.error, 'error'); // TBR
             return;
           }
 
@@ -89,7 +91,7 @@
           } else if (sites.length === 1) {
             site = sites[0];
           } else {
-            alert('Site configuration choice is not implemented yet.');
+            commands.showMessage('Site configuration choice is not available: using first site.', 'information');
             site = sites[0];
           }
 
@@ -98,7 +100,7 @@
           const configData = await Ifm.Config.Provisioning.getConfig(username, token, site,
                               ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
           if (!configData || !configData.data) {
-            alert(`Invalid site configuration (${siteDisplayName})`); // TBR
+            commands.showMessage(`Invalid site configuration (${siteDisplayName})`, 'error'); // TBR
             return;
           }
 
@@ -110,16 +112,16 @@
           try {
             Ifm.PhoneBar.instance.initialize(provisioningConfig);
           } catch(err) {
-            alert(`Configuration error (${siteDisplayName}) : ${err.message}`); // TBR
+            commands.showMessage(`Configuration error (${siteDisplayName}) : ${err.message}`, 'error'); // TBR
             return;
           }
 
           const extension = provisioningConfig.extension; // TBR: override?
-          phonebar.loginWithToken(token, extension, function(e) {
+          phonebar.loginWithToken(token, extension, username, function(e) {
             if (e.accepted) {
-              dialog.close('login-dialog');
+              //dialog.close();
             } else {
-              Ifm.Dom.Photon.Cards.shake('login-dialog');
+              //dialog.shake();
               var cause;
               switch (e.failureCause) {
                 case 3: // WrongUsernameOrPassword
