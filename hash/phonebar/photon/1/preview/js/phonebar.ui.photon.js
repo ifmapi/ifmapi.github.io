@@ -110,7 +110,7 @@
 
           console.debug(`Site '${siteDisplayName}' configuration`, provisioningConfig);
           try {
-            Ifm.PhoneBar.instance.initialize(provisioningConfig);
+            await Ifm.PhoneBar.instance.initialize(provisioningConfig);
           } catch(err) {
             commands.showMessage(`Configuration error (${siteDisplayName}) : ${err.message}`, 'error'); // TBR
             return;

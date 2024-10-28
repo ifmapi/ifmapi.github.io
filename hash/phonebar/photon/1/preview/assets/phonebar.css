@@ -48,6 +48,8 @@ html, body {
 .phonebar-number-input {
     border : 0; /* needed to prevent 3D border style */
     border-bottom    : 1px solid var(--bg-highlight);
+    padding-left     : 10px;
+    padding-right    : 10px;
     width            : 25%;
     color            : var(--alt-foreground);
     background-color : transparent;
@@ -58,6 +60,11 @@ html, body {
     width : 20px;
 }
 
+.phonebar-number-input::placeholder {
+    color: var(--alt-midlow-color);
+}
+
+.phonebar-number-input:focus,
 .phonebar-number-input:hover {
     min-width : 150px;
     width     : 25%;
