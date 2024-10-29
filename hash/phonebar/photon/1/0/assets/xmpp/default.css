@@ -8,11 +8,13 @@
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     #phonebar chat style
-    version 1.0.8
+    version 1.0.9
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 #candy {
+    background-image: url(img/chat-bg.png);
+    background-position: center;
     font: 16px Calibri, "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
     -webkit-font-smoothing: antialiased;
     position: relative;

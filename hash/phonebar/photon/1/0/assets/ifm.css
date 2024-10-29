@@ -215,6 +215,14 @@ select {
     background-color: #4197ee !important;  /* L:93 */
 }
 
+.accent-color {
+    color: var(--accent-color) !important; /* L:100 */
+}
+
+.accent-color:hover {
+    color: var(--accent-high-color) !important;  /* L:93 */
+}
+
 .accent-solid {
     background-color: var(--accent-color) !important; /* L:100 */
 }
