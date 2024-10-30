@@ -129,15 +129,15 @@
         _windows.set(id, newWindow);
       }
 
-      // augment object with Card functions:
-      newWindow.shake = Ifm.Photon.app.host.shakeWindow.bind(newWindow);
-
       newWindow.focus();
       Ifm.Dom.whenWindowNavigates(newWindow, url, function(newDocument) {
           if (options.title) {
             newDocument.title = options.title;
           }
-  
+
+          // augment object with Card functions:
+          newWindow.shake = Ifm.Photon.app.host.shakeWindow.bind(null, newWindow);
+
           const dialogBody = newDocument.getElementById(layoutId) || newDocument.body;
           if (dialogBody) {
             if (options.html) {
