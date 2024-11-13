@@ -10,6 +10,8 @@
 
   const commands = Ifm.PhoneBar.UI.Commands;
 
+  // PhoneBar Photon Commands //
+
   commands.about = function() {
     const html = `
   <div>
@@ -18,7 +20,7 @@
       <h2>${Ifm.Photon.app.host.version}</h2>
       <h2>${Ifm.PhoneBar.version}</h2>
       <br>
-      <h3>© 2024, Base Digitale Platform</h3>
+      <h3>\u00A9 2024, Base Digitale Platform</h3>
     </div>
   </div>
 `;
@@ -266,5 +268,31 @@
       commands.showQueueInfo();
     }
   };
+
+  // PhoneBar Photon Event Handlers //
+
+  if (Ifm.Photon.app.isHosted) {
+
+    Ifm.PhoneBar.events.statechanged = function(phonebar, e) {
+      if (e.currentState === Ifm.PhoneBar.States.NotLoggedIn) {
+        const id = 'registeredstatechanged_notification';
+        Ifm.Photon.app.host.clearNotification(id);
+      }
+    };
+
+    Ifm.PhoneBar.Media.Phone.events.registeredstatechanged = function(phone, e) {
+      const phonebar = Ifm.PhoneBar.instance;
+      const strings  = Ifm.PhoneBar.Strings[phonebar.language()];
+
+      const id = 'registeredstatechanged_notification';
+
+      if (!e.isRegistered && phonebar.currentState() !== Ifm.PhoneBar.States.NotLoggedIn) {
+        Ifm.Photon.app.host.showNotification({ content:'', heading:strings.PhoneNotRegistered, style:'Warning', hideAfter:false, position:'TopCenter', id });
+      } else {
+        Ifm.Photon.app.host.clearNotification(id);
+      }
+    };
+
+  }
 
 })();
