@@ -39,6 +39,8 @@
 
       get version() { return ''; },
 
+      clearNotification(id, window) { console.debug('Not implemented: host.clearNotification()'); },
+
       openDevTools() { console.debug('Not implemented: host.openDevTools()'); },
 
       refresh() { console.debug('Not implemented: host.refresh()'); },
@@ -47,7 +49,7 @@
 
       shakeWindow(window) { console.debug('Not implemented: host.shakeWindow()'); },
 
-      showNotification(options, window) { console.debug('Not implemented: host.shakeWindow()'); }
+      showNotification(options, window) { console.debug('Not implemented: host.showNotification()'); }
 
     },
 
