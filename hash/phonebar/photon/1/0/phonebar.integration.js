@@ -1,7 +1,7 @@
 
 //============================================================================
 
-// Copyright (c) IFM Infomaster. All rights reserved.
+// Copyright (c) Base Digitale Platform. All rights reserved.
 
 //============================================================================
 
@@ -378,7 +378,7 @@ Ifm.PhoneBar.Media.Xmpp.events.newcall = function (phonebar, e) {
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 //
-// Fires when one call's party sends a message in the xmpp session.
+// Fires when a participant sends a message in the xmpp session.
 //
 Ifm.PhoneBar.Media.Xmpp.events.newmessage = function (phonebar, e) {
     // argument 'e' has the following definition:
