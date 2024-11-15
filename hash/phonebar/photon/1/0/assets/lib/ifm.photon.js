@@ -53,7 +53,23 @@
 
     },
 
-    createId() { return Math.random().toString(16).substring(2).toUpperCase(); }
+    createId() { return Math.random().toString(16).substring(2).toUpperCase(); },
+
+    clearNotification(id, w) {
+      if (this.isHosted && this.host.clearNotification) {
+        this.host.clearNotification.apply(this.host, arguments);
+      } else {
+        console.debug('Not implemented: app.clearNotification()');
+      }
+    },
+
+    showNotification(options, w) {
+      if (this.isHosted && this.host.showNotification) {
+        this.host.showNotification.apply(this.host, arguments);
+      } else {
+        console.debug('Not implemented: app.showNotification()');
+      }
+    }
 
   };
 

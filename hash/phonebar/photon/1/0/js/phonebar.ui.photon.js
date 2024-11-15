@@ -120,7 +120,10 @@
 
           const extension = provisioningConfig.extension; // TBR: override?
           phonebar.loginWithToken(token, extension, username, function(e) {
-            if (e.accepted) {
+            if (e.failed) {
+              dialog.close();
+              commands.showMessage(strings.ConnectionFailed, 'error');
+          } else if (e.accepted) {
               //dialog.close();
             } else {
               //dialog.shake();
@@ -276,7 +279,7 @@
     Ifm.PhoneBar.events.statechanged = function(phonebar, e) {
       if (e.currentState === Ifm.PhoneBar.States.NotLoggedIn) {
         const id = 'registeredstatechanged_notification';
-        Ifm.Photon.app.host.clearNotification(id);
+        Ifm.Photon.app.clearNotification(id);
       }
     };
 
@@ -287,9 +290,9 @@
       const id = 'registeredstatechanged_notification';
 
       if (!e.isRegistered && phonebar.currentState() !== Ifm.PhoneBar.States.NotLoggedIn) {
-        Ifm.Photon.app.host.showNotification({ content:'', heading:strings.PhoneNotRegistered, style:'Warning', hideAfter:false, position:'TopCenter', id });
+        Ifm.Photon.app.showNotification({ content:'', heading:strings.PhoneNotRegistered, style:'Warning', hideAfter:false, position:'TopCenter', id });
       } else {
-        Ifm.Photon.app.host.clearNotification(id);
+        Ifm.Photon.app.clearNotification(id);
       }
     };
 
