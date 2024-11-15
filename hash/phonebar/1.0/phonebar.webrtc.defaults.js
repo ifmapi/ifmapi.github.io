@@ -1,7 +1,7 @@
 ﻿
 //============================================================================
 
-// Copyright © IFM Infomaster. All rights reserved.
+// Copyright (c) Base Digitale Platform. All rights reserved.
 
 //============================================================================
 
@@ -15,8 +15,15 @@ custom.webrtcdefaults = {
     registerExpires: 600,
     useSessionTimer: false,
     keepAlivePing: 10,
-    keepAlivePong: 10,
-    keepAliveStats: 60,
+
+    // Version 1.9.0
+    // keepAlivePong: 10,
+    // keepAliveStats: 60,
+
+    // Version 1.19.0
+    keepAlivePong: false,
+    keepAliveStats: false,
+
     restoreCall: true,
     restoreCallMaxDelay: 20,
 
@@ -31,7 +38,7 @@ custom.webrtcdefaults = {
       chrome: {audio: {echoCancellation: true}},
       firefox: {audio: {echoCancellation: true}}
     },
-    version: '2-Dec-2019'
+    version: '29-May-2022'
   }
 
 };
