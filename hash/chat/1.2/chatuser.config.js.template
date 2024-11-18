@@ -1,7 +1,7 @@
 ﻿
 //============================================================================
 
-// Copyright (c) IFM Infomaster. All rights reserved.
+// Copyright (c) Base Digitale Platform. All rights reserved.
 
 //============================================================================
 
@@ -55,7 +55,7 @@ var config = {
 
     // The title of the chat (window and tab); can be overridden
     // with any string, default is "Chat" if none is specified
-    roomtitle  : "IFM Group - Chat",
+    roomtitle  : "Chat",
 
     // The url containing chat ui theme files; may be a relative
     // or absolute url; default is Classic; factory themes are:
@@ -70,6 +70,15 @@ var config = {
     // false, or an object like in the following example:
     // showdisconnect : { confirmation: true, canceltimeout: 3 },
     showdisconnect : false,
+
+    // Disables input text until a message is received from an agent or a bot;
+    // valid values are:
+    // 0 (or false) : never disable (default)
+    // 1            : disable until first received message
+    // 2            : disable after sending message, enable after each received
+    inputdisabled : false,
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     // The language used across the chat; default is "it";
     // built-in values are: 

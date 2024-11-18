@@ -1,7 +1,7 @@
 
 //============================================================================
 
-// Copyright (c) IFM Infomaster. All rights reserved.
+// Copyright (c) Base Digitale Platform. All rights reserved.
 
 //============================================================================
 
