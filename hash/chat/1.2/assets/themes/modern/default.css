@@ -1,10 +1,13 @@
-/********************************************************
- ** Copyright (c) IFM Infomaster. All rights reserved. **
- ********************************************************/
+
+/*============================================================================
+ |
+ | Copyright (c) Base Digitale Platform. All rights reserved.
+ |
+ ===========================================================================*/
 
 /********************************************************
     #phones chat Modern theme
-    version 1.0.8
+    version 1.0.9
  ********************************************************/
 
 #candy {
@@ -123,7 +126,6 @@
     width: 16px;
     height: 16px;
     margin-left: 5px;
-    float: left;
     display: inline-block;
     cursor: pointer;
     background-position: top left;
@@ -451,6 +453,10 @@
 
 .message-form input.submit:hover {
     background-color: #22ccff;
+}
+
+.message-form input.submit:disabled {
+    display: none;
 }
 
 /** Tooltips and Floating Menu Appearance **/

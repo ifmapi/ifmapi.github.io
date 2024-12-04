@@ -1,10 +1,13 @@
-/********************************************************
- ** Copyright (c) IFM Infomaster. All rights reserved. **
- ********************************************************/
+
+/*============================================================================
+ |
+ | Copyright (c) Base Digitale Platform. All rights reserved.
+ |
+ ===========================================================================*/
 
 /********************************************************
     #phones chat Classic theme
-    version 1.0.8
+    version 1.0.9
  ********************************************************/
 
 #candy {
@@ -123,7 +126,6 @@
     width: 16px;
     height: 16px;
     margin-left: 5px;
-    float: left;
     display: inline-block;
     cursor: pointer;
     background-position: top left;
@@ -250,10 +252,11 @@
 }
 
 .message-pane li.sender-is-me {
-
+    font-weight: 400;
 }
 
 .message-pane li.sender-is-other {
+    font-weight: 400;
     color: #0c409c;
 }
 
@@ -410,8 +413,8 @@
 
 .message-form input.submit {
     cursor: pointer;
-    background-color: #ccc;
-    color: #666;
+    background-color: #638dd9;
+    color: white;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -426,7 +429,11 @@
 }
 
 .message-form input.submit:hover {
-    background-color: #ddd;
+    background-color: #75a6ff;
+}
+
+.message-form input.submit:disabled {
+    display: none;
 }
 
 /** Tooltips and Floating Menu Appearance **/
