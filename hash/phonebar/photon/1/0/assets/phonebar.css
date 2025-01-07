@@ -191,6 +191,15 @@ html, body {
     width : 100%;
 }
 
+.phonebar-transfer-agent-list-search-box {
+    margin-top: 16px;
+    text-align: right;
+}
+
+.phonebar-transfer-agent-list-search-input {
+    margin-bottom: 4px;
+}
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   Campaign Form Classes

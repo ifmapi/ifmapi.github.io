@@ -161,8 +161,8 @@
 
     if (Ifm.Dom.Photon.Cards.isShown('dialpad-card')) return;
 
-    Ifm.Dom.Photon.Cards.show('', 'dialpad-card', strings.DialpadTitle,
-      false, false, 0, { width : 148, height : 184 }, function(card, body) {
+    Ifm.Dom.Photon.Cards.show('', 'dialpad-card', false, false, 0,
+      strings.DialpadTitle, { width : 148, height : 184 }, function(card, body) {
       const buttons = document.getElementById('phonebar-phone-dialpad-buttons');
 
       for (const button of buttons.children) {
