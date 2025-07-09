@@ -172,7 +172,7 @@
     }
   }
 
-  window.chrome.webview.addEventListener('message', ev => {
+  window.chrome.webview && window.chrome.webview.addEventListener('message', ev => {
     const message = ev.data;
     if (message["Type"] === 'phonebar-interop') {
       const data = JSON.parse(message["Data"]);

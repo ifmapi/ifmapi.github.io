@@ -27,7 +27,27 @@ html, body {
     flex : 1; /* layout has flex display, this fills vertically */
 }
 
+.phonebar-state-group {
+    display: flex;
+    flex-grow: 1;
+    min-width: 0;
+    align-items: center;
+}
+
+.phonebar-state-text {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.phonebar-state-time-text {
+    flex-shrink: 1;
+    width: 100px;
+    text-align: center;
+}
+
 .phonebar-state-text, .phonebar-state-time-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
     overflow: hidden; /* prevents breaking toolbar spaces */
 }
 
@@ -76,8 +96,10 @@ html, body {
 }
 
 .phonebar-number-input:disabled { 
-    border : 0;
-    width  : 20px; /* prevents growing */
+    border    : 0;
+    min-width : 20px; /* prevents growing */
+    max-width : 20px;
+    width     : 20px;
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -239,6 +261,38 @@ html, body {
 .phonebar-queueinfo-card-content {
     padding : 8px;
     font-size : larger;
+}
+
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Call Registry Card Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-callregistry-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.phonebar-callregistry-card-tabs-container {
+    background-color: var(--alt-background);
+}
+
+.phonebar-callregistry-card-tab-content {
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+.phonebar-callregistry-card-table {
+    border-spacing: 4px;
+    border-collapse: separate;
+    width: 100%;
+}
+
+.phonebar-callregistry-card-clear-button {
+    float: right;
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

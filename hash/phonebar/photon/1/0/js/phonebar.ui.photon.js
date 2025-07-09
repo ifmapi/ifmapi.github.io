@@ -162,21 +162,25 @@
     if (Ifm.Dom.Photon.Cards.isShown('dialpad-card')) return;
 
     Ifm.Dom.Photon.Cards.show('', 'dialpad-card', false, false, 0,
-      strings.DialpadTitle, { width : 148, height : 184 }, function(card, body) {
-      const buttons = document.getElementById('phonebar-phone-dialpad-buttons');
+      strings.DialpadTitle, { width : 148, height : 184 },
+      function(card, body) {
+        body.classList.add('alt-background');
 
-      for (const button of buttons.children) {
-        button.removeAttribute('disabled');
+        const buttons = document.getElementById('phonebar-phone-dialpad-buttons');
+
+        for (const button of buttons.children) {
+          button.removeAttribute('disabled');
+        }
+
+        body.appendChild(buttons);
+        body.classList.add('phonebar-dialpad-card-content');
+
+        card.onclosed = function() {
+          // take buttons back
+          document.getElementById('phonebar-phone-dialpad-holder').appendChild(buttons);
+        };
       }
-
-      body.appendChild(buttons);
-      body.classList.add('phonebar-dialpad-card-content');
-
-      card.onclosed = function() {
-         // take buttons back
-         document.getElementById('phonebar-phone-dialpad-holder').appendChild(buttons);
-      };
-    });
+    );
   };
 
 /*
