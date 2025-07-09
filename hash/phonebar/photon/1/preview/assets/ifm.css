@@ -133,10 +133,12 @@ button {
     color: var(--alt-foreground);
     letter-spacing: 1px;
     text-transform: uppercase;
+    white-space: nowrap;
     cursor: pointer;
     margin: 2px;
     padding: 8px;
     border-radius: 2px;
+    height: 44px;
     -moz-transition    : background-color 0.2s, color 0.2s;
     -o-transition      : background-color 0.2s, color 0.2s;
     -webkit-transition : background-color 0.2s, color 0.2s;
@@ -486,11 +488,11 @@ button:active:after {
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .dialog {
-    position : absolute;
-    left     : 25%;
-    right    : 25%;
-    top      : 25%;
-    height   : auto;
+    position  : absolute;
+    left      : 50%;
+    transform : translateX(-50%);
+    top       : 25%;
+    height    : auto;
     max-width : 580px;
     min-width : 340px;
     background-color : #fff;
@@ -612,9 +614,10 @@ button:active:after {
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .toolbar {
-    display      : flex; 
-    align-items  : center; 
-    align-content: stretch;
+    display       : flex;
+    align-items   : center;
+    align-content : stretch;
+    overflow      : hidden;
 }
 
 .toolbar > button:hover {

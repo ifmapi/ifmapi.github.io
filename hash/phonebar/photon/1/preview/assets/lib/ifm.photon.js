@@ -134,10 +134,19 @@
       const features = `popup=${!!popup}` + position + size;
 
       // Photon-only window style options:
+      const phOpts = {};
+
+      if (options.showInTaskbar) {
+        phOpts.showInTaskbar = 1;
+      }
+
       if (options.topmost) {
-        const pwOpts = { topmost : 1 };
+        phOpts.topmost = 1;
+      }
+
+      if (Object.keys(phOpts).length) {
         const urlObj = new URL(url, window.location.href);
-        urlObj.searchParams.append('phopts', encodeURIComponent(JSON.stringify(pwOpts)));
+        urlObj.searchParams.append('phopts', encodeURIComponent(JSON.stringify(phOpts)));
         url = urlObj.href;
       }
 
