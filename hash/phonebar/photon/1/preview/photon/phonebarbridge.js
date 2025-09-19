@@ -7,6 +7,11 @@
   window.addEventListener('load', () => {
     if (typeof Ifm === typeof undefined || typeof Ifm.PhoneBar === typeof undefined) return; // not the PhoneBar page
 
+    Ifm.PhoneBar.events.initialized = (phonebar, e) => {
+      phonebar.connection.events.connected                 = (_, e) => postConnectionEvent(e, 10101, 'connected');
+      phonebar.connection.events.disconnected              = (_, e) => postConnectionEvent(e, 10102, 'disconnected');
+    };
+
     Ifm.PhoneBar.events.initialized                        = (_, e) => postPhoneBarEvent(e, 10001, 'initialized');
     Ifm.PhoneBar.events.languagechanged                    = (_, e) => postPhoneBarEvent(e, 10002, 'languagechanged');
     Ifm.PhoneBar.events.pause                              = (_, e) => postPhoneBarEvent(e, 10003, 'pause');
@@ -63,10 +68,11 @@
 
   const THIS = '[PhoneBarBridge]';
 
-  const postPhoneBarEvent = (e, eventCode, eventName) => postEvent(e, 'phonebar-event', eventName, eventCode);
-  const postPhoneEvent    = (e, eventCode, eventName) => postEvent(e, 'phonebar-phone-event', eventName, eventCode);
-  const postXmppEvent     = (e, eventCode, eventName) => postEvent(e, 'phonebar-xmpp-event', eventName, eventCode);
-  const postPhoneBarReply = (e, eventCode, eventName, destination, id) => postReply(e, 'phonebar-reply', eventName, eventCode, destination, id);
+  const postPhoneBarEvent   = (e, eventCode, eventName) => postEvent(e, 'phonebar-event', eventName, eventCode);
+  const postConnectionEvent = (e, eventCode, eventName) => postEvent(e, 'phonebar-connection-event', eventName, eventCode);
+  const postPhoneEvent      = (e, eventCode, eventName) => postEvent(e, 'phonebar-phone-event', eventName, eventCode);
+  const postXmppEvent       = (e, eventCode, eventName) => postEvent(e, 'phonebar-xmpp-event', eventName, eventCode);
+  const postPhoneBarReply   = (e, eventCode, eventName, destination, id) => postReply(e, 'phonebar-reply', eventName, eventCode, destination, id);
 
   // System notifications
   const ConnectionClosedEvent               = 90001;    // Parameters: { connectionId (string) }
