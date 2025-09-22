@@ -7,7 +7,7 @@
 
 /********************************************************
     #phones chat Pop theme
-    version 1.0.9
+    version 1.0.11
  ********************************************************/
 
 #candy {
@@ -339,7 +339,8 @@
 }
 
 .message-pane span.message > a {
-    color: white;
+    color: inherit;
+    text-decoration: underline !important;
 }
 
 .message-pane a:hover {
@@ -417,7 +418,6 @@
     font-size: 12px;
     line-height: 12px;
     height: 25px;
-    font-weight: bold;
     border-radius: 3px;
 }
 
@@ -549,21 +549,20 @@
 
 #chat-modal {
     background: white;
-    width: 300px;
     padding: 20px 5px;
     color: #333;
     font-size: 16px;
     position: fixed;
-    left: 50%;
-    top: 50%;
-    margin-left: -160px;
-    margin-top: -45px;
+    left: 10%;
+    width: 80%;
+    top: 30%;
     text-align: center;
     display: none;
     z-index: 100;
-    border: 5px solid #888;
+    border: 2px solid #888;
     border-radius: 5px;
     box-shadow: 0 0 5px black;
+    box-sizing: border-box;
 }
 
 #chat-modal-overlay {
