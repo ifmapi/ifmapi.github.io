@@ -487,6 +487,8 @@ button:active:after {
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .dialog {
+    display: flex;
+    flex-direction: column;
     position  : absolute;
     left      : 50%;
     transform : translateX(-50%);
@@ -589,7 +591,12 @@ button:active:after {
     vertical-align: middle;
 }
 
+.dialog-title:empty {
+    display: none;
+}
+
 .dialog-body {
+    flex: 1;
     padding: 40px;
     background-color: var(--background);
     text-align: center;

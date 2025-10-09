@@ -136,12 +136,28 @@
       // Photon-only window style options:
       const phOpts = {};
 
-      if (options.showInTaskbar) {
-        phOpts.showInTaskbar = 1;
+      if (options.alert !== undefined) {
+        phOpts.alert = options.alert ? 1 : 0;
       }
 
-      if (options.topmost) {
-        phOpts.topmost = 1;
+      if (options.cornerRadius !== undefined) {
+        phOpts.cornerRadius = options.cornerRadius;
+      }
+
+      if (options.glowColor !== undefined) {
+        phOpts.glowColor = options.glowColor;
+      }
+
+      if (options.glowWidth !== undefined) {
+        phOpts.glowWidth = options.glowWidth;
+      }
+
+      if (options.showInTaskbar !== undefined) {
+        phOpts.showInTaskbar = options.showInTaskbar ? 1 : 0;
+      }
+
+      if (options.topmost !== undefined) {
+        phOpts.topmost = options.topmost ? 1 : 0;
       }
 
       if (Object.keys(phOpts).length) {
@@ -312,8 +328,8 @@
 
       show(html, id, dialog, fade, level, title, options = {}, onload) {
         options.url = options.url || 'popup.html'; // update options object
-        options.html = html;
-        options.title = title;
+        options.html = html || '';
+        options.title = title || '';
         return Ifm.Photon.Windows.open(options.url, id, options, onload);
       },
 

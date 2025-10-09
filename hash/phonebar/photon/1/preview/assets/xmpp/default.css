@@ -15,6 +15,7 @@
 #candy {
     background-image: url(img/chat-bg.png);
     background-position: center;
+    background-repeat: no-repeat;
     font: 16px Calibri, "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
     -webkit-font-smoothing: antialiased;
     position: relative;
