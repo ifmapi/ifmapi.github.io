@@ -26,12 +26,22 @@
   }
 })();
 
+
 (function(){
   'use strict';
 
+  const _isHosted = typeof window.gc === typeof Function;
+
   const app = {
 
-    isHosted : typeof window.gc === typeof Function,
+    isHosted : _isHosted,
+
+
+    // The app can overwrite this function to get notified when the host
+    // is about to close; the app che refuse termination returning an object
+    // with a member "cancel" with value "true".
+    onBeforeTerminate() { },
+
 
     host : {
       get autoHide() { return false; },
@@ -53,6 +63,7 @@
 
     },
 
+
     createId() { return Math.random().toString(16).substring(2).toUpperCase(); },
 
     clearNotification(id, w) {
@@ -73,9 +84,11 @@
 
   };
 
-  // Export
+  // Exports //
+
   namespace('Ifm.Photon').app = app;
 })();
+
 
 (function() {
   'use strict';
@@ -118,7 +131,24 @@
       const size = ((width >= 100) && (height >= 100))
                  ? `, width=${width}, height=${height}` : '';
 
-      var features = `popup=${!!popup}` + position + size;
+      const features = `popup=${!!popup}` + position + size;
+
+      // Photon-only window style options:
+      const phOpts = {};
+
+      if (options.showInTaskbar) {
+        phOpts.showInTaskbar = 1;
+      }
+
+      if (options.topmost) {
+        phOpts.topmost = 1;
+      }
+
+      if (Object.keys(phOpts).length) {
+        const urlObj = new URL(url, window.location.href);
+        urlObj.searchParams.append('phopts', encodeURIComponent(JSON.stringify(phOpts)));
+        url = urlObj.href;
+      }
 
       // // use standard browser features for window style options
       // if (options.minimizeOnClose) features += ', menubar=true';
@@ -131,8 +161,8 @@
         // must check for misalignments with host: this
         // seems to be a reliable property to check:
         if (newWindow.document.visibilityState !== 'visible') {
-          // window.open could have returned a still valid window with its
-          // webview2 chrome closed: try again:
+          // window.open could have returned a still valid window (for js)
+          // but with its actual webview2 chrome closed... try again:
           newWindow.close();
           newWindow = window.open(url, id, features);
         }
@@ -207,6 +237,7 @@
   namespace('Ifm.Photon').Windows = Windows;
 })();
 
+
 (function() {
   'use strict';
 
@@ -228,6 +259,7 @@
   // Export
   namespace('Ifm.Photon').input = input;
 })();
+
 
 (function() {
   'use strict';
@@ -268,6 +300,7 @@
   // Export
   namespace('Ifm.Photon').Menu = Menu;
 })();
+
 
 (function() {
   'use strict';
