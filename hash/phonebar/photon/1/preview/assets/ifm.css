@@ -132,6 +132,7 @@ button {
     background-color: var(--alt-background);
     color: var(--alt-foreground);
     letter-spacing: 1px;
+    min-width: 60px;
     text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
@@ -624,6 +625,10 @@ button:active:after {
     align-items   : center;
     align-content : stretch;
     overflow      : hidden;
+}
+
+.toolbar > button {
+    min-width: 0;
 }
 
 .toolbar > button:hover {
