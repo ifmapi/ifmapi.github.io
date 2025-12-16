@@ -217,6 +217,14 @@ html, body {
     background-color : var(--alt-background);
 }
 
+#phonebar-phone-dialpad-buttons {
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   Transfer Form Classes

@@ -132,6 +132,7 @@ button {
     background-color: var(--alt-background);
     color: var(--alt-foreground);
     letter-spacing: 1px;
+    min-width: 60px;
     text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
@@ -487,6 +488,8 @@ button:active:after {
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .dialog {
+    display: flex;
+    flex-direction: column;
     position  : absolute;
     left      : 50%;
     transform : translateX(-50%);
@@ -589,7 +592,12 @@ button:active:after {
     vertical-align: middle;
 }
 
+.dialog-title:empty {
+    display: none;
+}
+
 .dialog-body {
+    flex: 1;
     padding: 40px;
     background-color: var(--background);
     text-align: center;
@@ -617,6 +625,10 @@ button:active:after {
     align-items   : center;
     align-content : stretch;
     overflow      : hidden;
+}
+
+.toolbar > button {
+    min-width: 0;
 }
 
 .toolbar > button:hover {

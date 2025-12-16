@@ -169,19 +169,34 @@ html, body {
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+  Alert Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-alert-text {
+    color: var(--alt-low-color);
+    font-size: 32px;
+    padding: 40px;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
   Incoming Call Popup Classes
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .phonebar-incoming-call-card-content {
-    background-color : var(--alt-background);
-    padding          : 40px;
-    text-align       : center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .phonebar-incoming-call-text {
-    color     : var(--alt-foreground);
-    font-size : 32px;
+    color: var(--alt-low-color);
+    font-size: 32px;
+    margin-bottom: 16px;
 }
 
 .phonebar-incoming-call-number {
@@ -200,6 +215,14 @@ html, body {
 
 .phonebar-dialpad-card-content {
     background-color : var(--alt-background);
+}
+
+#phonebar-phone-dialpad-buttons {
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

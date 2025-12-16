@@ -20,7 +20,7 @@
       <h2>${Ifm.Photon.app.host.version}</h2>
       <h2>${Ifm.PhoneBar.version}</h2>
       <br>
-      <h3>\u00A9 2024, Base Digitale Platform</h3>
+      <h3>\u00A9 2024-2025, Base Digitale Platform</h3>
     </div>
   </div>
 `;
@@ -93,8 +93,11 @@
           } else if (sites.length === 1) {
             site = sites[0];
           } else {
-            commands.showMessage('Site configuration choice is not available: using first site.', 'information');
-            site = sites[0];
+            const siteOptions = sites.map(s => ({ label: s, value: s }));
+            Ifm.Dom.Photon.Menu.choose(siteOptions, (value) => site = value);
+            if (site === null) {
+              return;
+            }
           }
 
           const siteDisplayName = site || 'Default';
@@ -148,8 +151,8 @@
               }
               commands.showMessage(cause, 'warning');
             }
-        });
-      }
+          });
+        }
     }, {
       text: strings.ButtonCancel
     }], { width : 600, height : 210 });
@@ -162,7 +165,7 @@
     if (Ifm.Dom.Photon.Cards.isShown('dialpad-card')) return;
 
     Ifm.Dom.Photon.Cards.show('', 'dialpad-card', false, false, 0,
-      strings.DialpadTitle, { width : 148, height : 184 },
+      strings.DialpadTitle, { width : 148, height : 184, topmost : true },
       function(card, body) {
         body.classList.add('alt-background');
 
