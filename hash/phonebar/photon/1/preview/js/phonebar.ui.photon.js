@@ -223,7 +223,7 @@
   
     Ifm.Dom.Photon.Menu.choose([
       { label : userinfo, disabled : true },
-      //{ label : strings.MenuItemOptions, value : 'options' },
+      { label : strings.MenuItemOptions, value : 'options' },
       { label : '-', visible : loggedIn },
       { label : strings.MenuItemPanic, value : 'panic', visible : loggedIn },
       { label : '-', visible : loggedIn },
@@ -237,6 +237,8 @@
       //{ label : strings.MenuItemShowLogs, value : 'logs', visible : shift && host },
       { label : '-' },
       { label : strings.MenuItemAutoHide, value : 'autohide', visible : hosted, checked : Ifm.Photon.app.host.autoHide },
+      { label : '-' },
+      { label : strings.MenuItemSettings, value : 'settings' },
       { label : strings.MenuItemAbout, value : 'about' },
       { label : strings.MenuItemExit, value : 'exit', disabled : loggedIn && !paused, visible : hosted }
     ], value => {
@@ -247,11 +249,12 @@
         case 'devtools'  : Ifm.Photon.app.host.openDevTools(); break;
         case 'dialpad'   : commands.toggleDialpad(); break;
         case 'exit'      : close(); break;
-        case 'options'   : commands.showOptionsDialog(); break;
+        case 'options'   : commands.showOptions(); break;
         case 'panic'     : commands.panic(); break;
         case 'queue'     : commands.toggleQueueInfo(); break;
         case 'refresh'   : Ifm.Photon.app.host.refresh(); break;
         case 'reload'    : Ifm.Photon.app.host.reload(); break;
+        case 'settings'  : commands.showSettings(); break;
       }
     });
   };
