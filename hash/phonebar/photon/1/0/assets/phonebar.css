@@ -150,7 +150,7 @@ html, body {
 }
 
 .phonebar-form-input {
-    width         : 200px; 
+    width         : 240px; 
     margin-bottom : 10px;
     margin-left   : 10px;
 }
@@ -160,7 +160,7 @@ html, body {
 }
 
 .phonebar-form-input.small {
-    width         : 100px;
+    width         : 120px;
 }
 
 .phonebar-form-input.right-aligned {
@@ -366,6 +366,138 @@ html, body {
     line-height    : 1;
     vertical-align : top;
 }
+
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  Settings and Options Cards
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.phonebar-settings-card-body {
+    height: 100%;
+}
+
+.phonebar-settings-tabbed-card {
+    display: flex;
+    height: 100%;
+}
+
+.phonebar-settings-left {
+    width: 160px;
+    padding: 20px 4px 0 4px;
+    /*background-color: var(--alt-background);*/
+}
+
+.phonebar-settings-right {
+    flex: 1;
+    padding: 20px 10px 0 0
+}
+
+.phonebar-settings-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.phonebar-settings-tab {
+    padding: 8px 10px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.phonebar-settings-tab-active {
+    background: var(--alt-mid-color);
+    font-weight: 600;
+}
+
+.phonebar-settings-panes {
+    padding-left: 12px;
+}
+
+.phonebar-settings-pane {
+    display: none;
+}
+
+.phonebar-settings-pane-active {
+    display: block;
+}
+
+.phonebar-settings-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 6px 4px;
+}
+
+.phonebar-settings-label-large {
+    width: 320px;
+}
+
+.phonebar-settings-input {
+    flex: 1;
+}
+
+.phonebar-settings-input input[type="number"] {
+    text-align: right;
+}
+
+.phonebar-settings-help {
+    color: #666;
+    font-size: 11px;
+}
+
+.phonebar-field-modified {
+    background: linear-gradient(90deg, rgba(171, 212, 255, 0.08), rgba(255, 255, 255, 0));
+    border-left: 4px solid #4aa3ff;
+    margin-left: -4px;
+}
+
+.phonebar-settings-modified {
+    margin-top: 1px;
+    color: var(--alt-mid-color);
+}
+
+.phonebar-input-invalid {
+    box-shadow: 0 0 0 2px rgba(255, 120, 120, 0.12) inset;
+    border-color: #f66;
+}
+
+.phonebar-revert-button {
+    margin-left: 8px;
+    padding: 2px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--alt-mid-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-width: auto;
+}
+
+.phonebar-revert-button:disabled {
+    cursor: default;
+    opacity: 0.4;
+}
+
+.phonebar-revert-button i.material-icons {
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.phonebar-revert-button:hover {
+    color: var(--foreground);
+    background: rgba(0,0,0,0.02);
+}
+
+/* Restore section button moved to dialog footer; kept minimal styling via dialog button classes */
+
+/* Settings Revert Button: handled above */
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

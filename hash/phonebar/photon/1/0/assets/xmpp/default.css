@@ -8,7 +8,7 @@
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     #phonebar chat style
-    v. 1.0.9-0
+    v. 1.0.10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -112,7 +112,6 @@
     width: 16px;
     height: 16px;
     margin-left: 5px;
-    float: left;
     display: inline-block;
     cursor: pointer;
     background-position: top left;
@@ -158,6 +157,7 @@
     padding: 2px 4px;
     border-radius: 3px;
     margin-top: 8px;
+    min-width  : 30px;
     width  : 30px;
     height : 30px;
     background-repeat   : no-repeat;
