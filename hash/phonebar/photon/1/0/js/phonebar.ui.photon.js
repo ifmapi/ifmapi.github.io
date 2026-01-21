@@ -105,7 +105,7 @@
           const configData = await Ifm.Config.Provisioning.getConfig(username, token, site,
                               ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
           if (!configData || !configData.data) {
-            commands.showMessage(`Invalid site configuration (${siteDisplayName})`, 'error'); // TBR
+            commands.showMessage(`Error retrieving site configuration (${siteDisplayName})`, 'error'); // TBR
             return;
           }
 
@@ -113,7 +113,9 @@
           provisioningConfig.config.useProvisioning = true;
           provisioningConfig.webrtcdefaults = custom.webrtcdefaults; // TBR: required but not in provisiong
 
-          console.debug(`Site '${siteDisplayName}' configuration`, provisioningConfig);
+          console.debug(`[PhoneBar.UI.Photon] Site '${siteDisplayName}' configuration: ` + JSON.stringify(provisioningConfig));
+          console.debug(provisioningConfig);
+
           try {
             await Ifm.PhoneBar.instance.initialize(provisioningConfig);
           } catch(err) {

@@ -167,6 +167,10 @@ html, body {
     text-align: right;
 }
 
+.phonebar-form-input:disabled {
+    opacity: 0.7;
+}
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   Alert Classes
@@ -437,6 +441,11 @@ html, body {
 
 .phonebar-settings-input {
     flex: 1;
+    height: 32px;
+}
+
+.phonebar-settings-input input[type="checkbox"] {
+    margin-top: 4px;
 }
 
 .phonebar-settings-input input[type="number"] {
@@ -454,18 +463,13 @@ html, body {
     margin-left: -4px;
 }
 
-.phonebar-settings-modified {
-    margin-top: 1px;
-    color: var(--alt-mid-color);
-}
-
 .phonebar-input-invalid {
     box-shadow: 0 0 0 2px rgba(255, 120, 120, 0.12) inset;
     border-color: #f66;
 }
 
-.phonebar-revert-button {
-    margin-left: 8px;
+.phonebar-revert-button,
+.phonebar-restore-default-button {
     padding: 2px;
     background: transparent;
     border: none;
@@ -477,6 +481,8 @@ html, body {
     justify-content: center;
     text-decoration: none;
     min-width: auto;
+    width: 25px;
+    height: 25px;
 }
 
 .phonebar-revert-button:disabled {
