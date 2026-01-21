@@ -167,6 +167,10 @@ html, body {
     text-align: right;
 }
 
+.phonebar-form-input:disabled {
+    opacity: 0.7;
+}
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   Alert Classes
