@@ -437,6 +437,11 @@ html, body {
 
 .phonebar-settings-input {
     flex: 1;
+    height: 32px;
+}
+
+.phonebar-settings-input input[type="checkbox"] {
+    padding-top: 4px;
 }
 
 .phonebar-settings-input input[type="number"] {
