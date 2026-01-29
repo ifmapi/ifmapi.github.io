@@ -69,7 +69,10 @@
 
           const authInfo = await Ifm.Iam.OAuth2.getToken(authData, username);
           if (!authInfo || !authInfo.token) {
-            commands.showMessage('Invalid access token', 'error'); // TBR
+            if (!authInfo.isRedirecting) {
+              commands.showMessage('Authentication failed', 'error'); // TBR
+            }
+
             return;
           }
 
