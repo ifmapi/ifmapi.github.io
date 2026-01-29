@@ -52,7 +52,7 @@
           const username = dialogBody.querySelector('#usernametxt').value;
           phonebar.agent.username = username;
 
-          dialog.close();
+          //TBR:dialog.close();
 
           const authConfig = await Ifm.Config.Provisioning.getAuthConfig(username,
                               ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
