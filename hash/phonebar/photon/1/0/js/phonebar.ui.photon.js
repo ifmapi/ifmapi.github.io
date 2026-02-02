@@ -20,7 +20,7 @@
       <h2>${Ifm.Photon.app.host.version}</h2>
       <h2>${Ifm.PhoneBar.version}</h2>
       <br>
-      <h3>\u00A9 2024-2025, Base Digitale Platform</h3>
+      <h3>\u00A9 2024-2026, Base Digitale Platform</h3>
     </div>
   </div>
 `;
