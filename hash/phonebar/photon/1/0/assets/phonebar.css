@@ -8,7 +8,7 @@
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     #phonebar main style
-    v. 1.0.78-3420
+    v. 1.0.96-5569
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -173,11 +173,12 @@ html, body {
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-  Alert Classes
+  Alert and Confirm Classes
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-.phonebar-alert-text {
+.phonebar-alert-text,
+.phonebar-confirm-text {
     color: var(--alt-low-color);
     font-size: 32px;
     padding: 40px;
@@ -320,6 +321,11 @@ html, body {
 
 .phonebar-callregistry-card-clear-button {
     float: right;
+}
+
+a.phonebar-callregistry-number, a.phonebar-callregistry-number:active,
+a.phonebar-callregistry-number:hover, a.phonebar-callregistry-number:visited {
+    color: var(--foreground);
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

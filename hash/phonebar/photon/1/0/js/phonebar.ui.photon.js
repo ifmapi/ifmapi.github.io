@@ -52,7 +52,7 @@
           const username = dialogBody.querySelector('#usernametxt').value;
           phonebar.agent.username = username;
 
-          dialog.close();
+          //TBR:dialog.close();
 
           const authConfig = await Ifm.Config.Provisioning.getAuthConfig(username,
                               ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
@@ -69,7 +69,10 @@
 
           const authInfo = await Ifm.Iam.OAuth2.getToken(authData, username);
           if (!authInfo || !authInfo.token) {
-            commands.showMessage('Invalid access token', 'error'); // TBR
+            if (!authInfo.isRedirecting) {
+              commands.showMessage('Authentication failed', 'error'); // TBR
+            }
+
             return;
           }
 
