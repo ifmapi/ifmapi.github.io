@@ -493,7 +493,7 @@ button:active:after {
     position  : absolute;
     left      : 50%;
     transform : translateX(-50%);
-    top       : 25%;
+    top       : 20%;
     height    : auto;
     max-width : 580px;
     min-width : 340px;
@@ -538,13 +538,13 @@ button:active:after {
 }
 
 @keyframes dialog-animation-y {
-    from { max-height: 0;    top: 27%; }
-    to   { max-height: 100%; }
+    from { max-height: 0; }
+    to   { max-height: 80%; }
 }
 
 @-webkit-keyframes dialog-animation-y {
-    from { max-height: 0;    top: 27%; }
-    to   { max-height: 100%; }
+    from { max-height: 0; }
+    to   { max-height: 80%; }
 }
 
 .dialog-close {

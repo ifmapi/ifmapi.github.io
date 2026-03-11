@@ -20,7 +20,7 @@
       <h2>${Ifm.Photon.app.host.version}</h2>
       <h2>${Ifm.PhoneBar.version}</h2>
       <br>
-      <h3>\u00A9 2024-2025, Base Digitale Platform</h3>
+      <h3>\u00A9 2024-2026, Base Digitale Platform</h3>
     </div>
   </div>
 `;
@@ -52,7 +52,7 @@
           const username = dialogBody.querySelector('#usernametxt').value;
           phonebar.agent.username = username;
 
-          dialog.close();
+          //TBR:dialog.close();
 
           const authConfig = await Ifm.Config.Provisioning.getAuthConfig(username,
                               ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
@@ -69,7 +69,10 @@
 
           const authInfo = await Ifm.Iam.OAuth2.getToken(authData, username);
           if (!authInfo || !authInfo.token) {
-            commands.showMessage('Invalid access token', 'error'); // TBR
+            if (!authInfo.isRedirecting) {
+              commands.showMessage('Authentication failed', 'error'); // TBR
+            }
+
             return;
           }
 
@@ -105,7 +108,7 @@
           const configData = await Ifm.Config.Provisioning.getConfig(username, token, site,
                               ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
           if (!configData || !configData.data) {
-            commands.showMessage(`Invalid site configuration (${siteDisplayName})`, 'error'); // TBR
+            commands.showMessage(`Error retrieving site configuration (${siteDisplayName})`, 'error'); // TBR
             return;
           }
 
@@ -113,7 +116,9 @@
           provisioningConfig.config.useProvisioning = true;
           provisioningConfig.webrtcdefaults = custom.webrtcdefaults; // TBR: required but not in provisiong
 
-          console.debug(`Site '${siteDisplayName}' configuration`, provisioningConfig);
+          console.debug(`[PhoneBar.UI.Photon] Site '${siteDisplayName}' configuration: ` + JSON.stringify(provisioningConfig));
+          console.debug(provisioningConfig);
+
           try {
             await Ifm.PhoneBar.instance.initialize(provisioningConfig);
           } catch(err) {
@@ -223,7 +228,7 @@
   
     Ifm.Dom.Photon.Menu.choose([
       { label : userinfo, disabled : true },
-      //{ label : strings.MenuItemOptions, value : 'options' },
+      { label : strings.MenuItemOptions, value : 'options' },
       { label : '-', visible : loggedIn },
       { label : strings.MenuItemPanic, value : 'panic', visible : loggedIn },
       { label : '-', visible : loggedIn },
@@ -237,6 +242,8 @@
       //{ label : strings.MenuItemShowLogs, value : 'logs', visible : shift && host },
       { label : '-' },
       { label : strings.MenuItemAutoHide, value : 'autohide', visible : hosted, checked : Ifm.Photon.app.host.autoHide },
+      { label : '-' },
+      { label : strings.MenuItemSettings, value : 'settings' },
       { label : strings.MenuItemAbout, value : 'about' },
       { label : strings.MenuItemExit, value : 'exit', disabled : loggedIn && !paused, visible : hosted }
     ], value => {
@@ -247,11 +254,12 @@
         case 'devtools'  : Ifm.Photon.app.host.openDevTools(); break;
         case 'dialpad'   : commands.toggleDialpad(); break;
         case 'exit'      : close(); break;
-        case 'options'   : commands.showOptionsDialog(); break;
+        case 'options'   : commands.showOptions(); break;
         case 'panic'     : commands.panic(); break;
         case 'queue'     : commands.toggleQueueInfo(); break;
         case 'refresh'   : Ifm.Photon.app.host.refresh(); break;
         case 'reload'    : Ifm.Photon.app.host.reload(); break;
+        case 'settings'  : commands.showSettings(); break;
       }
     });
   };

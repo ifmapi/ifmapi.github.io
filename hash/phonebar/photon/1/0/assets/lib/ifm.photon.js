@@ -327,7 +327,7 @@
     Cards : {
 
       show(html, id, dialog, fade, level, title, options = {}, onload) {
-        options.url = options.url || 'popup.html'; // update options object
+        options.url = (options.url || 'popup.html') + '?v=' + (+new Date).toString(36);
         options.html = html || '';
         options.title = title || '';
         return Ifm.Photon.Windows.open(options.url, id, options, onload);
