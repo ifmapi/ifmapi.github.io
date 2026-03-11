@@ -1,0 +1,210 @@
+[
+    {
+      "name": "CS50/CS60-USB Headset",
+      "vid": "0x047F",
+      "pid": "0x0410",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": false },
+        "Activate": { "type": "FeatureUsage", "page": "0xFFA0", "usage": "0x00A1", "val": true },
+        "Deactivate": { "type": "FeatureUsage", "page": "0xFFA0", "usage": "0x00A1", "val": false }
+      },
+      "buttons": {
+        "0xFFA0:0x00B7": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Plantronics D100",
+      "vid": "0x047F",
+      "pid": "0xAB11",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": true },
+        "Activate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": false },
+        "Connect": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x008F", "val": true },
+        "Disconnect": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x008F", "val": false }
+      },
+      "buttons": {
+        "0xFFA0:0x00B7": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Plantronics D100-M",
+      "vid": "0x047F",
+      "pid": "0xAB11",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": true },
+        "Activate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": false },
+        "Connect": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x008F", "val": true },
+        "Disconnect": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x008F", "val": false }
+      },
+      "buttons": {
+        "0xFFA0:0x00B7": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "GN 9330",
+      "vid": "0x0B0E",
+      "pid": "0x9330",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x002A", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x002B", "val": true }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "GN 9350",
+      "vid": "0x0B0E",
+      "pid": "0x9350",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x002A", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x002B", "val": true }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Jabra PRO 930",
+      "vid": "0x0B0E",
+      "pid": "0x1016",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Jabra PRO 930 v2",
+      "vid": "0x0B0E",
+      "pid": "0x1017",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Jabra LINK 280",
+      "vid": "0x0B0E",
+      "pid": "0x0910",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Jabra EVOLVE LINK",
+      "vid": "0x0B0E",
+      "pid": "0x0306",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "Talk", "onUp": "Drop" }
+      }
+    },
+    {
+      "name": "Jabra UC VOICE 750 Duo",
+      "vid": "0x0B0E",
+      "pid": "0x034D",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "Talk", "onUp": "Drop" }
+      }
+    },
+    {
+      "name": "Jabra Engage 65 SE",
+      "vid": "0x0B0E",
+      "pid": ["0x114E", "0x114F"],
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "Talk", "onUp": "Drop" }
+      }
+    },
+    {
+      "name": "Jabra UC VOICE 550",
+      "vid": "0x0B0E",
+      "pid": "0x0030",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Jabra A330",
+      "vid": "0x0B0E",
+      "pid": "0xA330",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x000B", "usage": "0x009E", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "TalkDrop" }
+      }
+    },
+    {
+      "name": "Poly Voyager 4310 UC (BT700)",
+      "vid": "0x047F",
+      "pid": "0x02E6",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x009E", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "Talk", "onUp": "Drop" }
+      }
+    },
+    {
+      "name": "Poly Voyager 4220 UC (BT600)",
+      "vid": "0x047F",
+      "pid": "0x02EE",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x009E", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x009E", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0xFFA0", "usage": "0x00A1", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0020": { "onDown": "Talk", "onUp": "Drop" }
+      }
+    }
+  ]
