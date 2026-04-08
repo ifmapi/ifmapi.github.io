@@ -140,7 +140,7 @@
     {
       "name": "Jabra Engage 65 SE",
       "vid": "0x0B0E",
-      "pid": ["0x114E", "0x114F"],
+      "pid": "0x114F",
       "commands": {
         "RingerOn": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": true },
         "RingerOff": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": false },
@@ -148,7 +148,21 @@
         "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
       },
       "buttons": {
-        "0x000B:0x0020": { "onDown": "Talk", "onUp": "Drop" }
+        "0x000B:0x0097": { "onDown": "Talk", "onUp": "Drop" }
+      }
+    },
+    {
+      "name": "Jabra Engage 65 SE V2",
+      "vid": "0x0B0E",
+      "pid": "0x114E",
+      "commands": {
+        "RingerOn": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": true },
+        "RingerOff": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0018", "val": false },
+        "Activate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": true },
+        "Deactivate": { "type": "OutputUsage", "page": "0x0008", "usage": "0x0017", "val": false }
+      },
+      "buttons": {
+        "0x000B:0x0097": { "onDown": "Talk", "onUp": "Drop" }
       }
     },
     {
