@@ -8,7 +8,7 @@
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     BDP common style
-    v. 1.1.0-0
+    v1.1.1
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -107,6 +107,10 @@ html {
 body, input, button, select {
     font: 16px Calibri, "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
     -webkit-font-smoothing: antialiased;
+}
+
+option {
+    font: 18px Calibri, "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
 }
 
 label {
@@ -505,6 +509,10 @@ button:active:after {
     -o-transition      : all 0.2s ease-in-out;
     -webkit-transition : all 0.2s ease-in-out;
     transition         : all 0.2s ease-in-out;
+}
+
+.dialog, .photon-card:focus {
+  outline: none;
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -8,7 +8,7 @@
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     #phonebar main style
-    v. 1.0.78-3420
+    v1.0.98
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -31,18 +31,28 @@ html, body {
     display: flex;
     flex-grow: 1;
     min-width: 0;
-    align-items: center;
+}
+
+.phonebar-state-text-container {
+    flex-grow: 1;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .phonebar-state-text {
-    flex-grow: 1;
-    min-width: 0;
+    display: inline-block;
 }
 
 .phonebar-state-time-text {
+    display: inline-block;
     flex-shrink: 1;
     width: 100px;
     text-align: center;
+}
+
+.phonebar-state-time-text:empty {
+    width: 0;
 }
 
 .phonebar-state-text, .phonebar-state-time-text {
@@ -136,6 +146,16 @@ html, body {
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+  Menu Classes
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.menu option:hover {
+    background-color: var(--alt-midlow-color);
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
   Generic Form Classes
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -181,7 +201,7 @@ html, body {
 .phonebar-confirm-text {
     color: var(--alt-low-color);
     font-size: 32px;
-    padding: 40px;
+    padding-top: 40px;
 }
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -423,7 +443,7 @@ a.phonebar-callregistry-number:hover, a.phonebar-callregistry-number:visited {
 }
 
 .phonebar-settings-panes {
-    padding-left: 12px;
+    margin-left: 4px;
 }
 
 .phonebar-settings-pane {
@@ -447,7 +467,7 @@ a.phonebar-callregistry-number:hover, a.phonebar-callregistry-number:visited {
 
 .phonebar-settings-input {
     flex: 1;
-    height: 32px;
+    min-height: 32px;
 }
 
 .phonebar-settings-input input[type="checkbox"] {
@@ -507,9 +527,11 @@ a.phonebar-callregistry-number:hover, a.phonebar-callregistry-number:visited {
     background: rgba(0,0,0,0.02);
 }
 
-/* Restore section button moved to dialog footer; kept minimal styling via dialog button classes */
+/* Special Sections */
 
-/* Settings Revert Button: handled above */
+.phonebar-headset-detector {
+    text-align: center;
+}
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

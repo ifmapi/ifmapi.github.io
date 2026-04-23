@@ -185,7 +185,7 @@
       }
 
       if (!newWindow) {
-        console.error('Popups must be enabled for this page!');
+        console.error('Failed to open window for card:', id, options.url);
         return null;
       }
 
@@ -327,24 +327,34 @@
     Cards : {
 
       show(html, id, dialog, fade, level, title, options = {}, onload) {
-        options.url = (options.url || 'popup.html') + '?v=' + (+new Date).toString(36);
+        const nonce = (+new Date).toString(36);
+
+        id = id || 'card-' + nonce;
+        options.url = (options.url || 'popup.html') + '?v=' + nonce;
         options.html = html || '';
         options.title = title || '';
-        return Ifm.Photon.Windows.open(options.url, id, options, onload);
+
+        return Ifm.Photon.Windows.open(options.url, id, options, (window, body) => {
+          body.className = 'photon-card';
+          body.tabIndex = 0; // make focusable
+          body.focus();
+
+          if (Ifm.Type.isFunction(onload)) {
+            onload(window, body);
+          }
+        });
       },
 
       showDialog(html, id, title, buttons, options = {}, onload) {
         const htmlDialog = Ifm.Dom.Cards._createDialogBody(html, title);
-        const newWindow = PhotonNS.Cards.show(htmlDialog, id, true, null, 0, title, options);
-        if (newWindow) {
-          Ifm.Dom.whenWindowNavigates(newWindow, options.url, newDocument => {
-            const dialogBody = newDocument.getElementById('page-layout') || newDocument.body;
-            Ifm.Dom.Cards._createDialogButtons(newWindow, dialogBody, buttons);
-            if (Ifm.Type.isFunction(onload)) {
-              onload(newWindow, dialogBody);
-            }
-          });
-        }
+
+        return PhotonNS.Cards.show(htmlDialog, id, true, null, 0, title, options, (window, body) => {
+          Ifm.Dom.Cards._createDialogButtons(window, body, buttons);
+
+          if (Ifm.Type.isFunction(onload)) {
+            onload(window, body);
+          }
+        });
       },
 
       shake       : Ifm.Photon.Windows.shake,
