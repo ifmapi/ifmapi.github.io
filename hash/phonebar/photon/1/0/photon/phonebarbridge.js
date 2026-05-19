@@ -113,6 +113,7 @@
   const LogWarnRequest                      = 20032;    // Parameters: { context (string), message (string) }
   const LogErrorRequest                     = 20033;    // Parameters: { context (string), message (string) }
   const OverrideButtonRequest               = 20034;    // Parameters: { buttonId (int), override (bool) }
+  const LoginWithTokenRequest               = 20035;    // Parameters: { token (string), extension (string), username (string) }
 
   // To Phonebar replies
   const OverridableButtonClickReply         = 20101;    // Parameters: { buttonId (int), requestId (string), managed (bool) }
@@ -490,6 +491,12 @@
             Ifm.PhoneBar.UI.onOverridableButtonClickReply(buttonId, requestId, managed);
           }
           break;
+
+          case LoginWithTokenRequest: {
+            Ifm.PhoneBar.instance.loginWithToken(data["Data"].token, data["Data"].extension, data["Data"].username, function (e) {
+              postPhoneBarReply(e, LoginReply, "login-reply", message["Sender"], data.Id);
+            });
+          }
 
         }
       }
