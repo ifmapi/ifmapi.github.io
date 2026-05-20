@@ -4,10 +4,6 @@
 (function(){
   'use strict';
 
-  const ProvisioningProduct = 'phonebar';
-  const ProvisioningTopic   = 'ifm.provisioning.phonebar';
-  const ProvisioningSubject = 'ifm.provisioning.phonebar.PhoneBar';
-
   const commands = Ifm.PhoneBar.UI.Commands;
 
   // PhoneBar Photon Commands //
@@ -54,29 +50,28 @@
 
           //TBR:dialog.close();
 
-          const authConfig = await Ifm.Config.Provisioning.getAuthConfig(username,
-                              ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
-          if (authConfig.error) {
-            commands.showMessage(authConfig.error, 'error'); // TBR
+          const authInfo = await phonebar.getAuthorityInfo(username);
+          if (authInfo.failed) {
+            commands.showMessage(authInfo.error, 'error'); // TBR
             return;
           }
 
-          const authData = authConfig.data;
-          authData.enableOAuth2 = true;
-          if (!('usePopup' in authData)) {
-            authData.usePopup = Ifm.Photon.app.isHosted;
+          const authConf = authInfo.authConfig;
+          authConf.enableOAuth2 = true;
+          if (!('usePopup' in authConf)) {
+            authConf.usePopup = Ifm.Photon.app.isHosted;
           }
 
-          const authInfo = await Ifm.Iam.OAuth2.getToken(authData, username);
-          if (!authInfo || !authInfo.token) {
-            if (!authInfo.isRedirecting) {
+          const tokenInfo = await Ifm.Iam.OAuth2.getToken(authConf, username);
+          if (!tokenInfo || !tokenInfo.token) {
+            if (!tokenInfo.isRedirecting) {
               commands.showMessage('Authentication failed', 'error'); // TBR
             }
 
             return;
           }
 
-          const token = authInfo.token;
+          const token = tokenInfo.token;
 
           const siteList = await Ifm.Config.Provisioning.getSiteList(username, token,
                           ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
@@ -135,7 +130,7 @@
             if (e.failed) {
               dialog.close();
               commands.showMessage(strings.ConnectionFailed, 'error');
-          } else if (e.accepted) {
+            } else if (e.accepted) {
               //dialog.close();
             } else {
               //dialog.shake();
