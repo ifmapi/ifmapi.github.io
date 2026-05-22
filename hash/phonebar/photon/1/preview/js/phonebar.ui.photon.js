@@ -4,6 +4,10 @@
 (function(){
   'use strict';
 
+  const ProvisioningProduct = 'phonebar';
+  const ProvisioningTopic   = 'ifm.provisioning.phonebar';
+  const ProvisioningSubject = 'ifm.provisioning.phonebar.PhoneBar';
+
   const commands = Ifm.PhoneBar.UI.Commands;
 
   // PhoneBar Photon Commands //
