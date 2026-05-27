@@ -113,6 +113,11 @@
   const LogWarnRequest                      = 20032;    // Parameters: { context (string), message (string) }
   const LogErrorRequest                     = 20033;    // Parameters: { context (string), message (string) }
   const OverrideButtonRequest               = 20034;    // Parameters: { buttonId (int), override (bool) }
+  const LoginWithTokenRequest               = 20035;    // Parameters: { token (string), extension (string), username (string) }
+  const GetAuthorityInfoRequest             = 20036;    // Parameters: { username (string) }
+  const GetTokenWithProvisioningRequest     = 20037;    // Parameters: { username (string) }
+  const GetSiteListFromProvisioningRequest  = 20038;    // Parameters: { username (string), [token (string)] }
+  const LoginWithProvisioningRequest        = 20039;    // Parameters: { username (string), [token (string)], [site (string)], [extension (string)] }
 
   // To Phonebar replies
   const OverridableButtonClickReply         = 20101;    // Parameters: { buttonId (int), requestId (string), managed (bool) }
@@ -139,6 +144,9 @@
   const TransferCallReply                   = 30012;    // Parameters: { accepted (bool), campaignName (string), callId (int) }
   const GetButtonEnabledReply               = 30013;    // Parameters: { buttonId (int), enabled (bool) }
   const OverrideButtonReply                 = 30014;    // Parameters: { buttonId (int), accepted (bool) }
+  const GetAuthorityInfoReply               = 30015;    // Parameters: { data (object) }
+  const GetTokenWithProvisioningReply       = 30016;    // Parameters: { data (object) }
+  const GetSiteListFromProvisioningReply    = 30017;    // Parameters: { data (object) }
 
   function postEvent(e, eventType, eventName, eventCode) {
     console.debug(`${THIS} Posting event; Type: ${eventType}, Name: ${eventName}, Code: ${eventCode}`, e);
@@ -488,6 +496,41 @@
             const requestId = data["Data"].requestId;
             const managed = Boolean(data["Data"].managed);
             Ifm.PhoneBar.UI.onOverridableButtonClickReply(buttonId, requestId, managed);
+          }
+          break;
+
+          case LoginWithTokenRequest: {
+            Ifm.PhoneBar.instance.loginWithToken(data["Data"].token, data["Data"].extension, data["Data"].username, function (e) {
+              postPhoneBarReply(e, LoginReply, "login-reply", message["Sender"], data.Id);
+            });
+          }
+          break;
+
+          case GetAuthorityInfoRequest: {
+            Ifm.PhoneBar.instance.getAuthorityInfo(data["Data"].username, function (e) {
+              postPhoneBarReply(e, GetAuthorityInfoReply, "getauthorityinfo-reply", message["Sender"], data.Id);
+            });
+          }
+          break;
+
+          case GetTokenWithProvisioningRequest: {
+            Ifm.PhoneBar.instance.getTokenWithProvisioning(data["Data"].username, function (e) {
+              postPhoneBarReply(e, GetTokenWithProvisioningReply, "gettokenwithprovisioning-reply", message["Sender"], data.Id);
+            });
+          }
+          break;
+
+          case GetSiteListFromProvisioningRequest: {
+            Ifm.PhoneBar.instance.getSiteListFromProvisioning(data["Data"].username, data["Data"].token, function (e) {
+              postPhoneBarReply(e, GetSiteListFromProvisioningReply, "getsitelistfromprovisioning-reply", message["Sender"], data.Id);
+            });
+          }
+          break;
+
+          case LoginWithProvisioningRequest: {
+            Ifm.PhoneBar.instance.loginWithProvisioning(data["Data"].username, data["Data"].token, data["Data"].site, data["Data"].extension, function (e) {
+              postPhoneBarReply(e, LoginReply, "login-reply", message["Sender"], data.Id);
+            });
           }
           break;
 
