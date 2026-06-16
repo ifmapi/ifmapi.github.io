@@ -320,9 +320,18 @@
       const strings  = Ifm.PhoneBar.Strings[phonebar.language()];
 
       if (!e.isRegistered && phonebar.currentState() !== Ifm.PhoneBar.States.NotLoggedIn) {
-        Ifm.Photon.app.showNotification({
-          content: '', heading: strings.PhoneNotRegistered, style:'Warning',
-          hideAfter: false, position:'TopCenter', id: NotificationId.PhoneNotRegistered });
+        // show notification after some seconds to let the registration process complete:
+        setTimeout(function() {
+          const phone = phonebar.media.phone;
+
+          // still not registered?
+          if (phone && !phone.isRegistered && phonebar.currentState() !== Ifm.PhoneBar.States.NotLoggedIn) {
+            Ifm.Photon.app.showNotification({
+              content: '', heading: strings.PhoneNotRegistered, style:'Warning',
+              hideAfter: false, position:'TopCenter', id: NotificationId.PhoneNotRegistered
+            });
+          }
+        }, 5000);
       } else {
         Ifm.Photon.app.clearNotification(NotificationId.PhoneNotRegistered);
       }
