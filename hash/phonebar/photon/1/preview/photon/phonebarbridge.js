@@ -118,6 +118,7 @@
   const GetTokenWithProvisioningRequest     = 20037;    // Parameters: { username (string) }
   const GetSiteListFromProvisioningRequest  = 20038;    // Parameters: { username (string), [token (string)] }
   const LoginWithProvisioningRequest        = 20039;    // Parameters: { username (string), [token (string)], [site (string)], [extension (string)] }
+  const StartStreamingToRequest             = 20040;    // Parameters: { callId (int), grpcUri (string), [settings (object)] }
 
   // To Phonebar replies
   const OverridableButtonClickReply         = 20101;    // Parameters: { buttonId (int), requestId (string), managed (bool) }
@@ -499,40 +500,39 @@
           }
           break;
 
-          case LoginWithTokenRequest: {
+          case LoginWithTokenRequest:
             Ifm.PhoneBar.instance.loginWithToken(data["Data"].token, data["Data"].extension, data["Data"].username, function (e) {
               postPhoneBarReply(e, LoginReply, "login-reply", message["Sender"], data.Id);
             });
-          }
-          break;
+            break;
 
-          case GetAuthorityInfoRequest: {
+          case GetAuthorityInfoRequest:
             Ifm.PhoneBar.instance.getAuthorityInfo(data["Data"].username, function (e) {
               postPhoneBarReply(e, GetAuthorityInfoReply, "getauthorityinfo-reply", message["Sender"], data.Id);
             });
-          }
-          break;
+            break;
 
-          case GetTokenWithProvisioningRequest: {
+          case GetTokenWithProvisioningRequest:
             Ifm.PhoneBar.instance.getTokenWithProvisioning(data["Data"].username, function (e) {
               postPhoneBarReply(e, GetTokenWithProvisioningReply, "gettokenwithprovisioning-reply", message["Sender"], data.Id);
             });
-          }
-          break;
+            break;
 
-          case GetSiteListFromProvisioningRequest: {
+          case GetSiteListFromProvisioningRequest:
             Ifm.PhoneBar.instance.getSiteListFromProvisioning(data["Data"].username, data["Data"].token, function (e) {
               postPhoneBarReply(e, GetSiteListFromProvisioningReply, "getsitelistfromprovisioning-reply", message["Sender"], data.Id);
             });
-          }
-          break;
+            break;
 
-          case LoginWithProvisioningRequest: {
+          case LoginWithProvisioningRequest:
             Ifm.PhoneBar.instance.loginWithProvisioning(data["Data"].username, data["Data"].token, data["Data"].site, data["Data"].extension, function (e) {
               postPhoneBarReply(e, LoginReply, "login-reply", message["Sender"], data.Id);
             });
-          }
-          break;
+            break;
+
+          case StartStreamingToRequest:
+            Ifm.PhoneBar.instance.startStreamingTo(data["Data"].callId, data["Data"].grpcUri, data["Data"].settings);
+            break;
 
         }
       }

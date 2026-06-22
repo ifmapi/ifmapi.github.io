@@ -4,10 +4,6 @@
 (function(){
   'use strict';
 
-  const ProvisioningProduct = 'phonebar';
-  const ProvisioningTopic   = 'ifm.provisioning.phonebar';
-  const ProvisioningSubject = 'ifm.provisioning.phonebar.PhoneBar';
-
   const commands = Ifm.PhoneBar.UI.Commands;
 
   // PhoneBar Photon Commands //
@@ -52,11 +48,9 @@
           const username = dialogBody.querySelector('#usernametxt').value;
           phonebar.agent.username = username;
 
-          //TBR:dialog.close();
-
           const authInfo = await phonebar.getAuthorityInfo(username);
           if (authInfo.failed) {
-            commands.showMessage(authInfo.error, 'error'); // TBR
+            commands.showMessage(authInfo.reason, 'error'); // TBR
             return;
           }
 
@@ -77,17 +71,13 @@
 
           const token = tokenInfo.token;
 
-          const siteList = await Ifm.Config.Provisioning.getSiteList(username, token,
-                          ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
-          if (!siteList) {
-            commands.showMessage('Error retrieving site list', 'error'); // TBR
-            return;
-          } else if (siteList.error) {
-            commands.showMessage('Error retrieving site list: ' + siteList.error, 'error'); // TBR
+          const siteList = await phonebar.getSiteListFromProvisioning(username, token);
+          if (siteList.failed) {
+            commands.showMessage(siteList.reason, 'error'); // TBR
             return;
           }
 
-          const sites = siteList.data || [];
+          const sites = siteList.sites;
 
           var site;
           if (sites.length === 0) {
@@ -102,67 +92,36 @@
             }
           }
 
-          const siteDisplayName = site || 'Default';
-
-          const configData = await Ifm.Config.Provisioning.getConfig(username, token, site,
-                              ProvisioningProduct, ProvisioningTopic, ProvisioningSubject);
-          if (!configData || !configData.data) {
-            if (configData.error) {
-              commands.showMessage(`Error retrieving site configuration: "${configData.error}"`, 'error'); // TBR
-            } else {
-              commands.showMessage(`Error retrieving '${siteDisplayName}' site configuration`, 'error'); // TBR
+          const loginResult = await phonebar.loginWithProvisioning(username, token, site, null);
+          if (loginResult.failed) {
+            dialog.close();
+            commands.showMessage(`${strings.ConnectionFailed}: ${loginResult.reason}`, 'error');
+          } else if (!loginResult.accepted) {
+            //dialog.shake();
+            var cause;
+            switch (loginResult.failureCause) {
+              case 0:
+                cause = strings.UserOrExtensionTaken;
+                break;
+              case 3: // WrongUsernameOrPassword
+                cause = strings.WrongCredentials;
+                break;
+              case 7: // InvalidExtension
+                cause = strings.InvalidExtension;
+                break;
+              case 8: // ExtensionAlreadyInUse
+                cause = strings.ExtensionInUse;
+                break;
+              case 9: // TokenBasedLoginNotAvailable
+              case 10: // InvalidToken
+                cause = strings.TokenBasedLoginError;
+                break;
+              default:
+                cause = "Login error " + loginResult.failureCause;
+                break;
             }
-
-            return;
+            commands.showMessage(cause, 'warning');
           }
-
-          const provisioningConfig = configData.data;
-          provisioningConfig.webrtcdefaults = custom.webrtcdefaults; // TBR: required but not in provisiong
-
-          console.debug(`[PhoneBar.UI.Photon] Site '${siteDisplayName}' configuration: ` + JSON.stringify(provisioningConfig));
-          console.debug(provisioningConfig);
-
-          try {
-            await Ifm.PhoneBar.instance.initialize(provisioningConfig);
-          } catch(err) {
-            commands.showMessage(`Configuration error (${siteDisplayName}) : ${err.message}`, 'error'); // TBR
-            return;
-          }
-
-          const extension = provisioningConfig.extension; // TBR: override?
-          phonebar.loginWithToken(token, extension, null, function(e) {
-            if (e.failed) {
-              dialog.close();
-              commands.showMessage(strings.ConnectionFailed, 'error');
-            } else if (e.accepted) {
-              //dialog.close();
-            } else {
-              //dialog.shake();
-              var cause;
-              switch (e.failureCause) {
-                case 0:
-                  cause = strings.UserOrExtensionTaken;
-                  break;
-                case 3: // WrongUsernameOrPassword
-                  cause = strings.WrongCredentials;
-                  break;
-                case 7: // InvalidExtension
-                  cause = strings.InvalidExtension;
-                  break;
-                case 8: // ExtensionAlreadyInUse
-                  cause = strings.ExtensionInUse;
-                  break;
-                case 9: // TokenBasedLoginNotAvailable
-                case 10: // InvalidToken
-                  cause = strings.TokenBasedLoginError;
-                  break;
-                default:
-                  cause = "Login error " + e.failureCause;
-                  break;
-              }
-              commands.showMessage(cause, 'warning');
-            }
-          });
         }
     }, {
       text: strings.ButtonCancel
