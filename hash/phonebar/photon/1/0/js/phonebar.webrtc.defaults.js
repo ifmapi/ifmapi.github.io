@@ -12,6 +12,16 @@ custom.webrtcdefaults = {
   PhoneConfig: {
     reconnectIntervalMin: 2,
     reconnectIntervalMax: 30,
+
+    // SIP 503 maintenance recovery.
+    // Used when a draining PBX returns SIP 503 so the idle client
+    // closes/reopens WSS and is rebalanced by NGINX to another node.
+    sip503ReconnectDelayMinMs: 0,
+    sip503ReconnectJitterMs: 100,
+    sip503ReconnectAfterCallJitterMs: 0,
+    sip503ReconnectCooldownMinMs: 500,
+    sip503ReconnectCooldownMaxMs: 1000,
+
     registerExpires: 600,
     useSessionTimer: false,
     keepAlivePing: 10,
