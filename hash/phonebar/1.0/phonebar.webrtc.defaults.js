@@ -48,7 +48,7 @@ custom.webrtcdefaults = {
       chrome: {audio: {echoCancellation: true}},
       firefox: {audio: {echoCancellation: true}}
     },
-    version: '29-May-2022'
+    version: '1.0'
   }
 
 };
