@@ -30,9 +30,11 @@
 (function(){
   'use strict';
 
-  const _isHosted = typeof window.gc === typeof Function;
+  const _isHosted = typeof window.chrome?.webview === typeof {};
 
   const app = {
+
+    version : 'Ifm.Photon.js/1.0.1-6081',
 
     isHosted : _isHosted,
 
